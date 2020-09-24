@@ -13,7 +13,7 @@
         <title>Saluda HUmano</title>
     </head>
     <body class="p-3 mb-2 bg-success text-white">
-        <h1>Registro Conductor leo</h1>
+        <h1>Registro Conductor el leo y el don juan</h1>
        
         
         <div class="p-3 mb-2 bg-secondary text-white container mt-5 ">
