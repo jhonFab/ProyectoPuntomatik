@@ -12,7 +12,7 @@ import static java.time.Clock.system;
 
 /**
  *
- * @author jflin
+ * @author jflinaresa
  */
 public class ConectaBD {
     public static Connection con;
