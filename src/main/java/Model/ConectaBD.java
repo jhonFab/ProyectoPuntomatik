@@ -19,11 +19,11 @@ public class ConectaBD {
     public static Connection con;
     public static String usuario = "root";
     public static String passw = "";
-    public static String url = "jdbc:mysql://localhost:3306/Prueba?serverTimezone=UTC";
+    public static String url = "jdbc:mysql://localhost:3306/prueba?serverTimezone=UTC";
     
     public static Connection abrir(){
         try {
-            Class.forName("con.mysql.jdbc.Driver");
+            Class.forName("com.mysql.jdbc.Driver");
             con = DriverManager.getConnection(url,usuario,passw);
             
             

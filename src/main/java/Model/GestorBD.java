@@ -19,6 +19,8 @@ import java.util.logging.Logger;
  */
 public class GestorBD {
     private Connection conn;
+    
+    
       public boolean registrar(int clave, String nombre, Double precio, int cant) {
         Connection conn = null;
         Statement stm;
