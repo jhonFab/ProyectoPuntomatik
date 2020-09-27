@@ -21,7 +21,7 @@
         
         <h1 style="text-align: center" class="mt-5"> PuntoMatik </h1>
         <h1 style="text-align: center"> Sistema unificado para las infracciones de conductores</h1>
-        <hr style="width:75%; border-color: blue" >
+        <hr style="width:100%; border-color: blue" >
         
         
         
@@ -88,7 +88,7 @@
 				<li><a href="app.jsp">Inicio</a></li>
 				<li><a href="">Servicios</a>
 					<ul>
-						<li><a href="">Consultas Puntos</a></li>
+                                                <li><a href="consultapuntos.jsp">Consultas Puntos</a></li>
 						<li><a href="">Consultas infracciones</a></li>
 						<li><a href="index.jsp">Consultas Conductores</a></li>
 						<li><a href="">Historial</a>
