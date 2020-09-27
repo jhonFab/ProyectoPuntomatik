@@ -78,6 +78,7 @@
 				right:-140px;
 				top:0px;
 			}
+                        
 			
 		</style>
 	</head>
@@ -123,7 +124,7 @@
             <input type="submit" value="ir" style="animation: linear">
         </form>
         
-        <h1 style="text-decoration: blue">Bienvenidos</h1>
+        <h1 style="text-decoration: blue; text-align: center">Bienvenidos a Puntomatik</h1>
         
          <form action="index.jsp" method="post">
                 <input type="submit" value="Consultar">
