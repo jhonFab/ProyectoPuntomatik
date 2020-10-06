@@ -1,7 +1,7 @@
 <%-- 
     Document   : eliminar
     Created on : 30 sep. 2020, 22:25:17
-    Author     : jflin
+    Author     : jflinare24
 --%>
 
 <%@page import="com.mysql.cj.protocol.Resultset"%>
