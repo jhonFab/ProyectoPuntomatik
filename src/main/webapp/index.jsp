@@ -1,90 +1,148 @@
 <%-- 
-    Document   : index
-    Created on : 19 sep. 2020, 20:14:21
+    Document   : app
+    Created on : 25 sep. 2020, 21:58:36
     Author     : jflin
 --%>
 
-<%@page import="com.mysql.cj.protocol.Resultset"%>
-<%@page import="com.mysql.jdbc.Driver"%>
-<%@page import="java.sql.Statement"%>
-<%@page import="java.sql.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-        <title>Lista conductores</title>
+         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+         
+        <title>Principal</title>
+        
     </head>
-    <body class="p-3 mb-2 bg-success text-white" >
-
-        <%
-            Connection con = null;
-            Statement st = null;
-            ResultSet rs = null;
-
-        %>
-        <h1>Listado de Conductores</h1>
-        <div class="p-3 mb-2 bg-secondary text-white container mt-5 ">
-            <form action="app.jsp" method="post">
-                <div class="form-group">
-                    <table class="table table-dark">
-                        <thead>
-                            <tr>
-                                <th scope="col">Nombre</th>
-                                <th scope="col">Cedula</th>
-                                <th scope="col">Email</th>
-                                <th scope="col">Telefono</th>
-                                <th scope="col">Usuario</th>
-                                <th scope="col">Contraseña</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <%                              
-                                String url = "jdbc:mysql://localhost:3306/prueba";
-                                String username = "root";
-                                String password = "";
-
-                                try {
-                                        String nombre="manuela";
-                                        int cedula=1233;
-                                        String email="manu@hotmail.com";
-                                        int cel=1222;
-                                        String usu="jlina";
-                                        String pass="1235";
-                                    Class.forName("com.mysql.jdbc.Driver");
-                                    con = DriverManager.getConnection(url, username, password);
-                                    System.out.println("Connection established" + con);
+  
+    
+    <body   >
+          <%
+          HttpSession sesion=request.getSession();
+          if(sesion.getAttribute("logueo")==null || sesion.getAttribute("logueo").equals("0") ){
+              response.sendRedirect("login.jsp");
+              }
+          %>
+        
+        <h1 style="text-align: center" class="mt-5"> PuntoMatik </h1>
+        <h1 style="text-align: center"> Sistema unificado para las infracciones de conductores</h1>
+        <hr style="width:75%; border-color: blue" >
+        
+        
+        
+	<head>
+		<title>Menu Desplegable</title>
+		<style type="text/css">
+			
+			* {
+				margin:0px;
+				padding:0px;
+			}
+			
+			#header {
+				margin:auto;
+				width:500px;
+				font-family:Arial, Helvetica, sans-serif;
+			}
+			
+			ul, ol {
+				list-style:none;
+			}
+			
+			.nav > li {
+				float:left;
+			}
+			
+			.nav li a {
+				background-color:#225    ;
+				color:#fff;
+				text-decoration:none;
+				padding:10px 12px;
+				display:block;
+			}
+			
+			.nav li a:hover {
+				background-color:#434343;
+			}
+			
+			.nav li ul {
+				display:none;
+				position:absolute;
+				min-width:140px;
+			}
+			
+			.nav li:hover > ul {
+				display:block;
+			}
+			
+			.nav li ul li {
+				position:relative;
+			}
+			
+			.nav li ul li ul {
+				right:-140px;
+				top:0px;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div id="header">
+			<ul class="nav">
+				<li><a href="index.jsp">Inicio</a></li>
+				<li><a href="">Consultas</a>
+					<ul>
+						<li><a href="">Consultas Puntos</a></li>
+						<li><a href="">Consultas infracciones</a></li>
+						<li><a href="consultar.jsp">Consultas Conductores</a></li>
+						<li><a href="">Historial</a>
+							<ul>
+								<li><a href="">Submenu1</a></li>
+								<li><a href="">Submenu2</a></li>
+								<li><a href="">Submenu3</a></li>
+								<li><a href="">Submenu4</a></li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+				<li><a href="">Registrar</a>
+					<ul>
+						<li><a href="crear.jsp">Agentes</a></li>
+						<li><a href="">Conductores</a></li>
+						<li><a href="">Vehiculos</a></li>
+						<li><a href="">Infreaccion</a></li>
+					</ul>
+				</li>
+				<li><a href="">Otros</a>
+                                                                                                     <ul>
+						<li><a href="eliminar.jsp">Eliminar</a></li>
+						<li><a href="editar.jsp">Actualizar</a></li>
+						<li><a href="">pendiente</a></li>
+						<li><a href="">pendeinte</a></li>
+					</ul>
                                     
-                                        //PreparedStatement insert=con.prepareStatement(" insert into `conductor` values (  ' "+ nombre + " ' ,"+cedula+ ",' "+ email+ " ' ,"+cel+ ", ' "+usu+ " ',' "+ pass + " '  ) ");
-                           
-                                        
-                                    PreparedStatement pstmt = con.prepareStatement("SELECT * FROM `conductor`");
-                                    rs = pstmt.executeQuery();
-                                    while (rs.next()) {
+                                    
+                                                                                </li>
+			</ul>
+		</div>
+            
+	</body>
 
-                            %>
+        
+       
 
-                            <tr>
-                                <th scope="row"> <%= rs.getString(1)%> </th>
-                                <td><%= rs.getString(2)%></td>
-                                <td><%= rs.getString(3)%></td>
-                                <td><%= rs.getString(4)%></td>
-                                <td><%= rs.getString(5)%></td>
-                                <td><%= rs.getString(6)%></td>
-
-                            </tr>
-                            <%
-                                    }
-                                } catch (Exception e) {
-                                    out.print("error my sql" + e);
-                                }
-                            %>
-                        </tbody>
-                    </table>
-                    <button type="submit" class="btn btn-light">Regresar pagina Principal</button>
+        <form action="index.jsp" method="post">
+            
+            
+            <input type="submit" value="ir" style="animation: linear">
+        </form>
+        
+        <h1 style="text-decoration: blue">Bienvenidos</h1>
+        
+         <form action="index.jsp" method="post">
+                <input type="submit" value="Consultar">
+                
             </form>
-               
-        </div>
+        
     </body>
 </html>
