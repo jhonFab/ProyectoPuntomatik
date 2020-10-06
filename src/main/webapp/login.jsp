@@ -43,10 +43,10 @@
     
     <%
      if (request.getParameter("login")!=null){
-        String usuario= request.getParameter("usuario");
-                String contrasena= request.getParameter("contrasena");
-                HttpSession sesion=request.getSession();
-                if(usuario.equals("jflinare24")&&contrasena.equals("alisson9738830")){
+            String usuario= request.getParameter("usuario");
+            String contrasena= request.getParameter("contrasena");
+            HttpSession sesion=request.getSession();
+            if(usuario.equals("jflinare24")&&contrasena.equals("alisson9738830")){
                 sesion.setAttribute("logueo", "1");
                 sesion.setAttribute("usuario", usuario);
                 response.sendRedirect("index.jsp");
