@@ -97,7 +97,7 @@
 						<li><a href="consultar.jsp">Consultas Conductores</a></li>
 						<li><a href="">Historial</a>
 							<ul>
-								<li><a href="">Submenu1</a></li>
+								<li><a href="historialConductor.jsp">Conductor</a></li>
 								<li><a href="">Submenu2</a></li>
 								<li><a href="">Submenu3</a></li>
 								<li><a href="">Submenu4</a></li>

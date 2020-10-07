@@ -84,7 +84,12 @@
                                             rs = st.executeQuery("SELECT * FROM `agente` where cedula=" + cedula);
                                         }
                                      else {
-                                        st = con.createStatement();
+                                     %>
+                                     
+                                     <%
+                                         
+        
+                                       st = con.createStatement();
                                         rs = st.executeQuery("SELECT * FROM `agente`");
                                     }
 
