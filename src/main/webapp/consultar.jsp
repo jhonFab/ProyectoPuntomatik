@@ -18,35 +18,29 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
         <title>Lista conductores</title>
     </head>
-
+    
     <body class="p-3 mb-2 btn-light text-black" >
         <%
             Connection con = null;
             Statement st = null;
             ResultSet rs = null;
-            String cedula = "";
-
 
         %>
 
 
         <h1>Listado de Conductores</h1>
-
+     
 
         <div class="container mt-5 ">
             <nav class="navbar navbar-light">
-                <a class="navbar-brand">Conductores</a>
-                <div>
-                    <form class="form-inline">
-                        <a><i class="fa fa-user-circle-o" aria-hidden="true" ></i></a>
-                        <input class="form-control mr-sm-2" type="search" name="search" placeholder="Buscar" aria-label="Search">
-                        <input class="btn btn" type="submit" value="Buscar"  >
-                        
-                    </form>
-                    
-                </div>
-            </nav>
-
+  <a class="navbar-brand">Conductores</a>
+  <form class="form-inline">
+      <a><i class="fa fa-user-circle-o" aria-hidden="true" ></i></a>
+    <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+  </form>
+</nav>
+            
             <div class="row">
                 <div class="col-sm">
                     <table class="table table-striped">
@@ -56,17 +50,17 @@
                                 <th scope="col"> 
                                     <a href="crear.jsp"><i class="fa fa-user-plus" aria-hidden="true"> Add</i></a>                                
                                 </th>   
-
-                            </tr>
-                            <tr>
-                                <th scope="col">Nombre</th>
-                                <th scope="col">Cedula</th>
-                                <th scope="col">Email</th>
-                                <th scope="col">Telefono</th>
-                                <th scope="col">Usuario</th>
-                                <th scope="col">Contrasena</th>
-                                <th scope="col">Acciones</th>                                
-                            </tr>
+                        
+                        </tr>
+                        <tr>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Cedula</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Telefono</th>
+                            <th scope="col">Usuario</th>
+                            <th scope="col">Contrasena</th>
+                            <th scope="col">Acciones</th>                                
+                        </tr>
                         </thead>
                         <tbody>
                             <%                                try {
@@ -76,25 +70,9 @@
                                     String password = "";
                                     Class.forName("com.mysql.jdbc.Driver");
                                     con = DriverManager.getConnection(url, username, password);
-                                    
-                                    
-                                        cedula = request.getParameter("search");
-                                        if (cedula != null) {
-                                            st = con.createStatement();
-                                            rs = st.executeQuery("SELECT * FROM `agente` where cedula=" + cedula);
-                                        }
-                                     else {
-                                     %>
-                                     
-                                     <%
-                                         
-        
-                                       st = con.createStatement();
-                                        rs = st.executeQuery("SELECT * FROM `agente`");
-                                    }
-
+                                    st = con.createStatement();
+                                    rs = st.executeQuery("SELECT * FROM `agente`");
                                     while (rs.next()) {
-
                             %>
                             <tr>
                                 <th scope="row"> <%= rs.getString(1)%> </th>
@@ -111,7 +89,6 @@
 
                             </tr>
                             <%
-
                                     }
                                 } catch (Exception e) {
                                     out.print("Error Mysql" + e);
