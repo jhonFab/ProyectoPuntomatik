@@ -15,7 +15,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-        <title>Historial Conductores</title>
+        <title>Historial De Infracciones Del Conductor</title>
     </head>
     <body class="p-3 mb-2 btn-light text-black">
 
@@ -24,16 +24,16 @@
             Statement st = null;
             ResultSet rs = null;
 
-            String nombre = request.getParameter("nombre");
-            String cedula = request.getParameter("id_conductor");
-            String fecha = request.getParameter("fecha");
-            String lugar = request.getParameter("lugar");
-            String idvehiculo = request.getParameter("id_vehiculo");
-            String tipovehiculo = request.getParameter("tipo_vehiculo");
-            String placa = request.getParameter("placa");
-            String idinfraccion = request.getParameter("id_infraccion");
-            String gravedad = request.getParameter("gravedad");
-            String detalle = request.getParameter("detalle");
+            String nombre = null;
+            String cedula = null;
+            String fecha = null;
+            String lugar = null;
+            String idvehiculo = null;
+            String tipovehiculo = null;
+            String placa = null;
+            String idinfraccion = null;
+            String gravedad = null;
+            String detalle = null;
         %>
 
         <h1>Historial Conductores</h1>
@@ -42,7 +42,7 @@
             <form class="form-group">
                 <div class="form-group">
                     <label for="cedula">Buscar por Cedula</label>
-                    <input type="text" name="cedula" class="form-control mr-sm-2"  aria-describedby="emailHelp">
+                    <input type="text" name="cedulaBuscar" class="form-control mr-sm-2"  aria-describedby="emailHelp">
                 </div>
 
                 <button type="submit" name="buscar" class="btn btn-primary">Buscar</button>
@@ -50,81 +50,69 @@
 
         </div>
 
-        <div class="container mt-5 ">
-            <form class="form-group" >
-                <div class="form-row">
-                    <div class="col-md-6 mb-3">
-                        <label for="validationCustom01">Cedula</label>
-                        <input type="text" class="form-control" id="validationCustom01" name="cedula" value="<%= cedula%>" required>
-                    </div>
-                    <div class="col-md-6 mb-3">
-                        <label for="validationCustom02">Nombre</label>
-                        <input type="text" class="form-control" id="validationCustom02" name="nombre" value="<%= nombre%>" required>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="col-md-6 mb-3">
-                        <label for="validationCustom01">Fecha</label>
-                        <input type="text" class="form-control" id="validationCustom01" name="fecha" value="<%= fecha%>" required>
-                    </div>
-                    <div class="col-md-6 mb-3">
-                        <label for="validationCustom02">Lugar</label>
-                        <input type="text" class="form-control" id="validationCustom02" name="lugar" value="<%= lugar%>" required>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="col-md-6 mb-3">
-                        <label for="validationCustom01">ID Vehiculo</label>
-                        <input type="text" class="form-control" id="validationCustom01" name="idvehiculo" value="<%= idvehiculo%>" required>
-                    </div>
-                    <div class="col-md-6 mb-3">
-                        <label for="validationCustom02">Tipo Vehiculo</label>
-                        <input type="text" class="form-control" id="validationCustom02" name="tipovehiculo" value="<%= tipovehiculo%>" required>
-                    </div>
-                    <div class="col-md-6 mb-3">
-                        <label for="validationCustom02">Placa Vehiculo</label>
-                        <input type="text" class="form-control" id="validationCustom02" name="placa" value="<%= placa%>" required>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="col-md-6 mb-3">
-                        <label for="validationCustom01">ID Infraccion</label>
-                        <input type="text" class="form-control" id="validationCustom01" name="idinfraccion" value="<%= idinfraccion%>" required>
-                    </div>
-                    <div class="col-md-6 mb-3">
-                        <label for="validationCustom02">Gravedad</label>
-                        <input type="text" class="form-control" id="validationCustom02" name="gravedad" value="<%= gravedad%>" required>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="col-md-6 mb-3">
-                        <label for="validationCustom01">Detalle</label>
-                        <input type="text" class="form-control" id="validationCustom01" name="detalle" value="<%= detalle%>" required>
-                    </div>
-                </div>
-            </form>
-        </div>
 
 
-        <%
-            if (request.getParameter("buscar") != null) {
-                try {
 
-                    String url = "jdbc:mysql://localhost:3306/software";
-                    String username = "root";
-                    String password = "";
-                    Class.forName("com.mysql.jdbc.Driver");
-                    con = DriverManager.getConnection(url, username, password);
+        <table class="table table-bordered container mt-5">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Cedula</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Fecha</th>
+                    <th scope="col">Lugar</th>
+                    <th scope="col">ID Vehiculo</th>
+                    <th scope="col">Placa Vehiculo</th>
+                    <th scope="col">Tipo Vehiculo</th>
+                    <th scope="col">ID Infraccion</th>
+                    <th scope="col">Gravedad</th>
+                    <th scope="col">Detalle</th>
+                </tr>
+            </thead>
+            <tbody>
+                <%            String cedulaBuscar = request.getParameter("cedulaBuscar");
+                    if (request.getParameter("buscar") != null) {
+                        try {
 
-                    st = con.createStatement();
-                    rs = st.executeQuery("SELECT c.id_conductor, c.nombre, m.fecha, m.lugar, v.id_vehiculo, v.placa, v.tipo_vehiculo, i.id_infraccion, i.gravedad, i.detalle FROM conductor c,multa m, infraccion i, vehiculo v WHERE c.id_conductor=" + cedula);
+                            String url = "jdbc:mysql://localhost:3306/software";
+                            String username = "root";
+                            String password = "";
+                            Class.forName("com.mysql.jdbc.Driver");
+                            con = DriverManager.getConnection(url, username, password);
+
+                            st = con.createStatement();
+                            rs = st.executeQuery("SELECT c.id_conductor, c.nombre, m.fecha, m.lugar, v.id_vehiculo, v.placa, v.tipo_vehiculo, i.id_infraccion, i.gravedad, i.detalle FROM conductor c,multa m, infraccion i, vehiculo v WHERE c.id_conductor=" + cedulaBuscar + " AND m.id_conductor=" + cedulaBuscar + " AND m.id_infraccion=i.id_infraccion AND c.id_vehiculo=v.id_vehiculo");
+                            while (rs.next()) {
+                             
+                            
+
+                %>
+                <tr>
+                    <th scope="row"> <%= rs.getString(1)%> </th>
+                    <td><%= rs.getString(2)%></td>
+                    <td><%= rs.getString(3)%></td>
+                    <td><%= rs.getString(4)%></td>
+                    <td><%= rs.getString(5)%></td>
+                    <td><%= rs.getString(6)%></td>
+                    <td><%= rs.getString(7)%></td>
+                    <td><%= rs.getString(8)%></td>
+                    <td><%= rs.getString(9)%></td>
+                    <td><%= rs.getString(10)%></td>
+                </tr>
+                <%  }
+                    } catch (Exception e) {
+                        out.print("Error Mysql" + e);
+                    }
+
+                %>
+                <%            }
+                %>
+            </tbody>
+        </table>
+
+            <div class="container mt-5 ">
+                <button type="submit" class="btn btn-light "><a href="index.jsp"><i class="fa fa-reply" aria-hidden="true">Regresar Pagina Principal</i></a></button>
+            </div>
 
 
-        %>
-        <%            } catch (Exception e) {
-                    out.print("Error Mysql" + e);
-                }
-            }
-        %>
     </body>
 </html>
