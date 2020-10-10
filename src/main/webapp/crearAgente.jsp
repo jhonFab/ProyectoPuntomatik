@@ -16,14 +16,15 @@
             <div class="row">
                 <div class="col-sm">
 
-                    <form action="crear.jsp" method="post">
-                        <div class="form-group">
-                            <label for="nombre">Nombre</label>
-                            <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre" required="required">
-                        </div>
+                    <form action="crearAgente.jsp" method="post">
+                       
                          <div class="form-group">
                             <label for="id_agente">Cedula</label>
                             <input type="number" class="form-control" id="id_agente" name="id_agente" placeholder="Cedula" required="required">
+                        </div>
+                         <div class="form-group">
+                            <label for="nombre">Nombre</label>
+                            <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre" required="required">
                         </div>
                         <!--<div class="form-group">
                             <label for="email">Email</label>
@@ -43,8 +44,8 @@
                             <input type="password" class="form-control" id="contrasena" name="contrasena" placeholder="Contraseña" required="required">
                         </div>
                         <div class="form-group">
-                            <label for="seccional">seccional</label>
-                            <input type="text" class="form-control" id="nombre" name="seccional" placeholder="seccional" required="required">
+                            <label for="id_seccional">seccional</label>
+                            <input type="text" class="form-control" id="nombre" name="id_seccional" placeholder="id_seccional">
                         </div>
                         <button type="submit" name="enviar" class="btn btn-primary">Guardar <i class="fa fa-floppy-o" aria-hidden="true"></i></button>
                         <button type="submit" name="enviar" class="btn btn-primary"> Cancelar  <i class="fa fa-times" aria-hidden="true"></i>
@@ -58,12 +59,12 @@
         </div>
         <%
             if (request.getParameter("enviar") !=null) {
-                String nombre = request.getParameter("nombre");
                 String cedula= request.getParameter("id_agente");
-                String seccional= request.getParameter("seccional");                
+                String nombre = request.getParameter("nombre");                             
                 String telefono = request.getParameter("telefono");
                 String usuario= request.getParameter("usuario");
                 String contraseña= request.getParameter("contrasena");
+                String seccional= request.getParameter("id_seccional");
                 
 
                 try {
@@ -76,7 +77,7 @@
                     con = DriverManager.getConnection(url, username, password);           
                    
                     st=con.createStatement();
-                    st.executeUpdate("insert into `agente` (id_agente,nombre,telefono,usuario,contrasena,seccional ) values("+cedula+",'"+nombre+"',"+telefono+",'"+usuario+"','"+contraseña+"','"+seccional+"');");
+                    st.executeUpdate("insert into `agente` (id_agente,nombre,telefono,usuario,contrasena,id_seccional ) values("+cedula+",'"+nombre+"',"+telefono+",'"+usuario+"','"+contraseña+"','"+seccional+"');");
                     request.getRequestDispatcher("index.jsp").forward(request, response);
                 } catch (Exception e) {
                     out.print("se encontro un error  : "+e);

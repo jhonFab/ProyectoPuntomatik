@@ -108,7 +108,7 @@
                 </li>
                 <li><a href="">Registrar</a>
                     <ul>
-                        <li><a href="crear.jsp">Agentes</a></li>
+                        <li><a href="crearAgente.jsp">Agentes</a></li>
                         <li><a href="">Conductores</a></li>
                         <li><a href="">Vehiculos</a></li>
                         <li><a href="">Infreaccion</a></li>
@@ -117,8 +117,8 @@
                 <li><a href="">Otros</a>
                     <ul>
                         <li><a href="eliminar.jsp">Eliminar</a></li>
-                        <li><a href="editar.jsp">Actualizar</a></li>
-                        <li><a href="">pendiente</a></li>
+                        <li><a href="editarAgente.jsp">Actualizar</a></li>
+                        <li><a href="consultarAgente.jsp">Consultar</a></li>
                         <li><a href="">pendeinte</a></li>
                     </ul>
 

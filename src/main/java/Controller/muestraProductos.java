@@ -6,7 +6,7 @@
 package Controller;
 
 import Model.*;
-import Model.Producto;
+import Model.Agente;
 import java.io.IOException;
 import java.io.PrintWriter;
 import static java.lang.System.out;
@@ -29,8 +29,8 @@ public class muestraProductos extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try ( PrintWriter out = response.getWriter()) {
-            ArrayList<Producto> productos = new ArrayList<Producto>();
-            Producto producto;
+            ArrayList<Agente> productos = new ArrayList<Agente>();
+            Agente producto;
             GestorBD gestorBD= new GestorBD();
             productos = gestorBD.leerTodos();
             if (productos != null) {

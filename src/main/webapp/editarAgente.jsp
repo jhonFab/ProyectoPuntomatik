@@ -11,15 +11,15 @@
     </head>
     <body>
         <% 
-                String nombre= request.getParameter("nombre");
-                String cedula= request.getParameter("cedula");
-                String email= request.getParameter("email");                
+                String cedula= request.getParameter("id_agente");  
+                String nombre= request.getParameter("nombre");         
                 String telefono = request.getParameter("telefono");
                 String usuario= request.getParameter("usuario");
                 String contraseña= request.getParameter("contrasena");
+                String seccional= request.getParameter("seccional"); 
                 
         %>
-        <h1 class="text-center mt-5">Modificar conductores</h1>
+        <h1 class="text-center mt-5">Modificar agente</h1>
         <hr style="width:75%; border-color: blue" >
         <div class="container mt-5">
             <div class="row">
@@ -31,13 +31,10 @@
                             <input type="text" class="form-control" id="nombre" value="<%= nombre %>" name="nombre" placeholder="Nombre" required="required">
                         </div>
                          <div class="form-group">
-                            <label for="cedula">Cedula</label>
-                            <input type="number" class="form-control" id="cedula" value="<%= cedula %>" name="cedula" placeholder="Cedula" required="required">
+                            <label for="id_agente">Cedula</label>
+                            <input type="number" class="form-control" id="id_agente" value="<%= cedula %>" name="id_agente" placeholder="Cedula" required="required">
                         </div>
-                         <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" class="form-control" id="email" value="<%= email %>" name="email" placeholder="Ejemplo@dominio.com" required="required">
-                        </div>
+                        
                          <div class="form-group">
                             <label for="telefono">Telefono</label>
                             <input type="number" class="form-control" id="telefono" value="<%= telefono %>" name="telefono" placeholder="Telefono" required="required">
@@ -50,6 +47,10 @@
                         <div class="form-group">
                             <label for="contrasena">Contraseña</label>
                             <input type="password" class="form-control" id="contrasena"value="<%= contraseña %>" name="contrasena" placeholder="Contraseña" required="required">
+                        </div>
+                         <div class="form-group">
+                            <label for="seccional">seccional</label>
+                            <input type="seccional" class="form-control" id="seccional" value="<%= seccional%>" name="seccional" placeholder="seccional" required="required">
                         </div>
                         <button type="submit" name="enviar" class="btn btn-primary">Guardar <i class="fa fa-floppy-o" aria-hidden="true"></i></button>
                    
@@ -69,14 +70,14 @@
                 try {
                     Connection con=null;
                     Statement st=null;
-                    String url = "jdbc:mysql://localhost:3306/prueba";
+                    String url = "jdbc:mysql://localhost:3306/software?useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC";
                     String username = "root";
                     String password = "";
                     Class.forName("com.mysql.jdbc.Driver");
                     con = DriverManager.getConnection(url, username, password);           
                    
                     st=con.createStatement();
-                    st.executeUpdate("update `agente`  set nombre='"+nombre+"',cedula="+cedula+",email='"+email+"',telefono='"+telefono+"',usuario='"+usuario+"' where contrasena= '"+contraseña+"' ");
+                    st.executeUpdate("update `agente`  set id_agente="+cedula+",nombre='"+nombre+"',telefono='"+telefono+"',usuario='"+usuario+"' where contrasena= '"+contraseña+"',seccional='"+seccional+"' ");
                     request.getRequestDispatcher("index.jsp").forward(request, response);
                 } catch (Exception e) {
                     out.print("se encontro un error  :  "+e);

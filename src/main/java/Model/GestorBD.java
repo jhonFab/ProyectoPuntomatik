@@ -21,7 +21,7 @@ public class GestorBD {
     private Connection conn;
     
     
-      public boolean registrar(int clave, String nombre, Double precio, int cant) {
+      public boolean registrar(int cedula, String nombre, String telefono, int usua, int contra, String seccional) {
         Connection conn = null;
         Statement stm;
         ResultSet rs; 
@@ -29,7 +29,7 @@ public class GestorBD {
           try {
               conn = ConectaBD.abrir();
               stm = conn.createStatement();
-              resultUpdate = stm.executeUpdate("insert into productos values ("+clave+ ",' "+ nombre + " ' ,"+precio+","+ cant+")");
+              resultUpdate = stm.executeUpdate("insert into productos values ("+cedula+" ,' "+ nombre + " ' ,"+telefono+","+ usua+","+contra+")");
               if (resultUpdate != 0) {
                   ConectaBD.cerrar();
                   return true;                   
@@ -43,7 +43,7 @@ public class GestorBD {
           }
     }
 
-    public Producto consultar(int clave, String nombre) {
+    public Agente consultar(int clave, String nombre) {
          Connection conn = null;
         Statement stm;
         ResultSet rs; 
@@ -59,11 +59,13 @@ public class GestorBD {
                   
               }else{
                   System.out.println("se encontro el registro");
-                  int clav= productResSet.getInt("clave");
+                  int cedula= productResSet.getInt("id_agente");
                   String nom= productResSet.getString("nombre");
-                  Double precio= productResSet.getDouble("precio");
-                  int cant = productResSet.getInt("cantidad");
-                  Producto productHallado = new Producto(clav, nom, precio, cant);
+                  String telefono= productResSet.getString("telefono");
+                  int usua = productResSet.getInt("usuario");
+                  int contra = productResSet.getInt("contrasena");
+                  String seccional = productResSet.getString("seccional");
+                  Agente productHallado = new Agente(cedula, nom, telefono, usua,contra,seccional);
                   ConectaBD.cerrar();
                   return productHallado;
               }
@@ -74,8 +76,8 @@ public class GestorBD {
     }
     }
 
-    public ArrayList<Producto> leerTodos() {
-      ArrayList<Producto> productos= new ArrayList<Producto>();
+    public ArrayList<Agente> leerTodos() {
+      ArrayList<Agente> productos= new ArrayList<Agente>();
       Connection conn = null; 
       Statement stm; 
         try {
@@ -88,11 +90,13 @@ public class GestorBD {
                 return null;                
             }else{
                 do{
-                   int clav= productResSet.getInt("clave");
+                   int cedula= productResSet.getInt("id_agente");
                   String nom= productResSet.getString("nombre");
-                  Double precio= productResSet.getDouble("precio");
-                  int cant = productResSet.getInt("cantidad");
-                  Producto productHallado = new Producto(clav, nom, precio, cant);
+                  String telefono= productResSet.getString("telefono");
+                  int usua = productResSet.getInt("usuario");
+                  int contra = productResSet.getInt("contrasena");
+                  String seccional = productResSet.getString("seccional");
+                  Agente productHallado = new Agente(cedula, nom, telefono, usua, contra, seccional);
                  productos.add(productHallado);
                 
                 }while (productResSet.next());

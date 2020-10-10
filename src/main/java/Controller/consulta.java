@@ -6,7 +6,7 @@
 package Controller;
 
 import Model.GestorBD;
-import Model.Producto;
+import Model.Agente;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -32,7 +32,7 @@ public class consulta extends HttpServlet {
         try ( PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
            
-            Producto producto;
+            Agente producto;
             GestorBD gestorBD = new GestorBD();
             producto = gestorBD.consultar(clave,nombre);
             if (producto !=null) {

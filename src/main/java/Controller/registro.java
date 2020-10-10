@@ -25,15 +25,17 @@ public class registro extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try ( PrintWriter out = response.getWriter()) {
-          int clave = Integer.parseInt(request.getParameter("clave"));
-          String nombre = request.getParameter("nombre");
-          Double precio = Double.parseDouble(request.getParameter("precio"));
-          int cant = Integer.parseInt(request.getParameter("cant"));
+          int cedula = Integer.parseInt(request.getParameter("id_agente"));
+          String nombre= request.getParameter("nombre");
+          String telefono = request.getParameter("telefono");
+          int usua = Integer.parseInt(request.getParameter("usuario"));
+          int contra = Integer.parseInt(request.getParameter("contrasena"));
+          String seccional = request.getParameter("seccional");
                      
-          Producto producto = new Producto(clave, nombre, precio, cant);
+          Agente producto = new Agente(cedula, nombre, telefono, usua, contra, seccional);
           GestorBD gestorBD= new GestorBD();
-            if (gestorBD.registrar(clave,nombre,precio,cant)) {
-                gestorBD.consultar(clave, nombre); 
+            if (gestorBD.registrar(cedula, nombre, telefono,usua, contra, seccional)) {
+                gestorBD.consultar(cedula, nombre); 
                 
                 request.setAttribute("atribProd", producto);
                 
