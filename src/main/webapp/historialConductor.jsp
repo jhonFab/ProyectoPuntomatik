@@ -24,7 +24,16 @@
             Statement st = null;
             ResultSet rs = null;
 
-
+            String nombre = request.getParameter("nombre");
+            String cedula = request.getParameter("id_conductor");
+            String fecha = request.getParameter("fecha");
+            String lugar = request.getParameter("lugar");
+            String idvehiculo = request.getParameter("id_vehiculo");
+            String tipovehiculo = request.getParameter("tipo_vehiculo");
+            String placa = request.getParameter("placa");
+            String idinfraccion = request.getParameter("id_infraccion");
+            String gravedad = request.getParameter("gravedad");
+            String detalle = request.getParameter("detalle");
         %>
 
         <h1>Historial Conductores</h1>
@@ -41,60 +50,80 @@
 
         </div>
 
-        <div class="container mt-5 p-3">
-            <form>
-                <div class="form-group">
-                    <label for="exampleInputEmail1">Cedula</label>
-                    <input type="text" class="form-control " name="cedula" aria-describedby="cedula">
+        <div class="container mt-5 ">
+            <form class="form-group" >
+                <div class="form-row">
+                    <div class="col-md-6 mb-3">
+                        <label for="validationCustom01">Cedula</label>
+                        <input type="text" class="form-control" id="validationCustom01" name="cedula" value="<%= cedula%>" required>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="validationCustom02">Nombre</label>
+                        <input type="text" class="form-control" id="validationCustom02" name="nombre" value="<%= nombre%>" required>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label for="exampleInputEmail1">Nombre</label>
-                    <input type="text" class="form-control" name="nombre" aria-describedby="nombre">
+                <div class="form-row">
+                    <div class="col-md-6 mb-3">
+                        <label for="validationCustom01">Fecha</label>
+                        <input type="text" class="form-control" id="validationCustom01" name="fecha" value="<%= fecha%>" required>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="validationCustom02">Lugar</label>
+                        <input type="text" class="form-control" id="validationCustom02" name="lugar" value="<%= lugar%>" required>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label for="exampleInputEmail1">ID del Vehiculo</label>
-                    <input type="text" class="form-control" name="id_vehiculo" aria-describedby="vehiculo">
+                <div class="form-row">
+                    <div class="col-md-6 mb-3">
+                        <label for="validationCustom01">ID Vehiculo</label>
+                        <input type="text" class="form-control" id="validationCustom01" name="idvehiculo" value="<%= idvehiculo%>" required>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="validationCustom02">Tipo Vehiculo</label>
+                        <input type="text" class="form-control" id="validationCustom02" name="tipovehiculo" value="<%= tipovehiculo%>" required>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="validationCustom02">Placa Vehiculo</label>
+                        <input type="text" class="form-control" id="validationCustom02" name="placa" value="<%= placa%>" required>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label for="exampleInputPassword1">Id Infraccion</label>
-                    <input type="text" class="form-control" name="id_infraccion" aria-describedby="infraccion">
+                <div class="form-row">
+                    <div class="col-md-6 mb-3">
+                        <label for="validationCustom01">ID Infraccion</label>
+                        <input type="text" class="form-control" id="validationCustom01" name="idinfraccion" value="<%= idinfraccion%>" required>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="validationCustom02">Gravedad</label>
+                        <input type="text" class="form-control" id="validationCustom02" name="gravedad" value="<%= gravedad%>" required>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label for="exampleInputEmail1">Gravedad</label>
-                    <input type="text" class="form-control" name="detalle" aria-describedby="gravedad">
-                </div>
-                <div class="form-group">
-                    <label for="exampleInputEmail1">Valor</label>
-                    <input type="text" class="form-control" name="valor" aria-describedby="valor">
-                </div>
-                <div class="form-group">
-                    <label for="exampleInputEmail1">Lugar</label>
-                    <input type="text" class="form-control" name="lugar" aria-describedby="lugar">
-                </div>
-                <div class="form-group">
-                    <label for="exampleInputEmail1">Detalle</label>
-                    <input type="text" class="form-control" name="detalle" aria-describedby="detalle">
+                <div class="form-row">
+                    <div class="col-md-6 mb-3">
+                        <label for="validationCustom01">Detalle</label>
+                        <input type="text" class="form-control" id="validationCustom01" name="detalle" value="<%= detalle%>" required>
+                    </div>
                 </div>
             </form>
         </div>
 
-        <%                                try {
 
-                String url = "jdbc:mysql://localhost:3306/software";
-                String username = "root";
-                String password = "";
-                Class.forName("com.mysql.jdbc.Driver");
-                con = DriverManager.getConnection(url, username, password);
+        <%
+            if (request.getParameter("buscar") != null) {
+                try {
 
-                st = con.createStatement();
-                rs = st.executeQuery("SELECT a.cedula, a.nombre, c.id, c.puntos FROM `agente` AS a INNER JOIN `infraccion` AS c WHERE a.cedula=c.id");
+                    String url = "jdbc:mysql://localhost:3306/software";
+                    String username = "root";
+                    String password = "";
+                    Class.forName("com.mysql.jdbc.Driver");
+                    con = DriverManager.getConnection(url, username, password);
 
-                
+                    st = con.createStatement();
+                    rs = st.executeQuery("SELECT c.id_conductor, c.nombre, m.fecha, m.lugar, v.id_vehiculo, v.placa, v.tipo_vehiculo, i.id_infraccion, i.gravedad, i.detalle FROM conductor c,multa m, infraccion i, vehiculo v WHERE c.id_conductor=" + cedula);
+
 
         %>
-        <%                                
-            } catch (Exception e) {
-                out.print("Error Mysql" + e);
+        <%            } catch (Exception e) {
+                    out.print("Error Mysql" + e);
+                }
             }
         %>
     </body>
