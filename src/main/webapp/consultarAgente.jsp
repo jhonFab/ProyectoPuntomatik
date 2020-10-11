@@ -1,8 +1,3 @@
-<%-- 
-    Document   : index
-    Created on : 19 sep. 2020, 20:14:21
-    Author     : jflin
---%>
 
 <%@page import="com.mysql.cj.protocol.Resultset"%>
 <%@page import="com.mysql.jdbc.Driver"%>
@@ -36,7 +31,9 @@
   <a class="navbar-brand">Agentes</a>
   <form class="form-inline">
       <a><i class="fa fa-user-circle-o" aria-hidden="true" ></i></a>
-    <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search">
+      <input class="form-control mr-sm-2" type="search" placeholder="Buscar por cedula" aria-label="Search">
+           
+    
     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
   </form>
 </nav>
@@ -82,8 +79,10 @@
                                 <td><%= rs.getInt(5)%></td>
                                 <td><%= rs.getString(6)%></td>
                                 <td> 
-                                    <a href="editarAgente.jsp?id_agente=<%= rs.getInt(1)%> &nombre=<%= rs.getString(2)%> &telefono=<%= rs.getString(3)%> &usuario=<%= rs.getInt(4)%> &contrasena=<%= rs.getInt(5)%> &id_seccional=<%= rs.getString(6)%>" ><i class="fa fa-pencil" aria-hidden="true"> Editar</i></a>
-                                    <a href="eliminar.jsp?cedula=<%= rs.getString(2)%> " class="ml-3"><i class="fa fa-trash-o" aria-hidden="true">Eliminar</i></a>
+                                    <a href="editarAgente.jsp?id_agente=<%= rs.getInt(1)%> &nombre=<%= rs.getString(2)%> &telefono=<%= rs.getString(3)%> &usuario=<%= rs.getInt(4)%> &contrasena=<%= rs.getInt(5)%> &id_seccional=<%= rs.getInt(6)%>" ><i class="fa fa-pencil" aria-hidden="true"> Editar</i></a>
+                                    <a href="eliminarAgente.jsp?id_agente=<%= rs.getString(1)%> " class="ml-3"><i class="fa fa-trash-o" aria-hidden="true">Eliminar</i></a>
+                                   
+                                    
                                 </td>
 
 
@@ -100,7 +99,7 @@
 
                     </table>
 
-                    <button   type="submit" class="btn btn-light">Regresar pagina Principal</button>
+                            <button   type="submit" class="btn btn-light"><a href="index.jsp">Regresar pagina Principal</button></a>
                     <th scope="col"> 
                         <a href="index.jsp"><i class="fa fa-reply" aria-hidden="true"></i></a>                                
                     </th>  

@@ -25,7 +25,7 @@
             <div class="row">
                 <div class="col-sm">
 
-                    <form action="editar.jsp" method="get">
+                    <form action="editarAgente.jsp" method="get">
                         <div class="form-group">
                             <label for="nombre">Nombre</label>
                             <input type="text" class="form-control" id="nombre" value="<%= nombre %>" name="nombre" placeholder="Nombre" required="required">
@@ -50,11 +50,11 @@
                         </div>
                          <div class="form-group">
                             <label for="seccional">seccional</label>
-                            <input type="seccional" class="form-control" id="seccional" value="<%= seccional%>" name="seccional" placeholder="seccional" required="required">
+                            <input type="number" class="form-control" id="seccional" value="<%= seccional%>" name="seccional" placeholder="seccional" required="required">
                         </div>
                         <button type="submit" name="enviar" class="btn btn-primary">Guardar <i class="fa fa-floppy-o" aria-hidden="true"></i></button>
                    
-                            <a href="consultar.jsp" class="btn-light"> Cancelar<i class="fa fa-arrow-circle-left" aria-hidden="true"></i></a>
+                            <a href="consultarAgente.jsp" class="btn-light"> Cancelar<i class="fa fa-arrow-circle-left" aria-hidden="true"></i></a>
 </button>
                        
 
@@ -77,7 +77,7 @@
                     con = DriverManager.getConnection(url, username, password);           
                    
                     st=con.createStatement();
-                    st.executeUpdate("update `agente`  set id_agente="+cedula+",nombre='"+nombre+"',telefono='"+telefono+"',usuario='"+usuario+"' where contrasena= '"+contraseña+"',seccional='"+seccional+"' ");
+                    st.executeUpdate("update `agente`  set id_agente="+cedula+",nombre='"+nombre+"',telefono='"+telefono+"',usuario="+usuario+" where contrasena= '"+contraseña+"',seccional="+seccional+" ");
                     request.getRequestDispatcher("index.jsp").forward(request, response);
                 } catch (Exception e) {
                     out.print("se encontro un error  :  "+e);

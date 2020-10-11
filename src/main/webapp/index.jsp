@@ -94,7 +94,7 @@
                 <li><a href="">Consultas</a>
                     <ul>
                         <li><a href="">Consultas Puntos</a></li>
-                        <li><a href="">Consultas infracciones</a></li>
+                        <li><a href="historialConductor">Consultas infracciones</a></li>
                         <li><a href="consultar.jsp">Consultas Conductores</a></li>
                         <li><a href="">Historial</a>
                             <ul>
@@ -109,6 +109,16 @@
                 <li><a href="">Registrar</a>
                     <ul>
                         <li><a href="crearAgente.jsp">Agentes</a></li>
+                         <li><a href="">consulta</a>
+                            <ul>
+                                <li><a href="consultarAgente.jsp">Agentes</a></li>
+                                <li><a href="">Submenu2</a></li>
+                                <li><a href="">Submenu3</a></li>
+                                <li><a href="">Submenu4</a></li>
+                            </ul>
+                        </li> 
+                        
+                        
                         <li><a href="">Conductores</a></li>
                         <li><a href="">Vehiculos</a></li>
                         <li><a href="">Infreaccion</a></li>
@@ -116,9 +126,9 @@
                 </li>
                 <li><a href="">Otros</a>
                     <ul>
-                        <li><a href="eliminarAgente.jsp">Eliminar</a></li>
-                        <li><a href="editarAgente.jsp">Actualizar</a></li>
-                        <li><a href="consultarAgente.jsp">Consultar</a></li>
+                        <li><a href=".jsp">Eliminar</a></li>
+                        <li><a href="">pendiente</a></li>
+                        <li><a href="">pendiente</a></li>
                         <li><a href="">pendeinte</a></li>
                     </ul>
 
