@@ -116,7 +116,7 @@
                 </li>
                 <li><a href="">Otros</a>
                     <ul>
-                        <li><a href="eliminar.jsp">Eliminar</a></li>
+                        <li><a href="eliminarAgente.jsp">Eliminar</a></li>
                         <li><a href="editarAgente.jsp">Actualizar</a></li>
                         <li><a href="consultarAgente.jsp">Consultar</a></li>
                         <li><a href="">pendeinte</a></li>

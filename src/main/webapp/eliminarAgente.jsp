@@ -22,14 +22,14 @@
             Statement st = null;
             ResultSet rs = null;
             try {
-            String url = "jdbc:mysql://localhost:3306/prueba";
+            String url = "jdbc:mysql://localhost:3306/software?useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC";
                                     String username = "root";
                                     String password = "";
                                     Class.forName("com.mysql.jdbc.Driver");
                                     con = DriverManager.getConnection(url, username, password);
                                     st = con.createStatement();
-                                    st.executeUpdate("delete FROM `agente` where cedula='"+ request.getParameter("cedula")+ "' ");
-                                    request.getRequestDispatcher("consultar.jsp").forward(request, response);
+                                    st.executeUpdate("delete FROM `agente` where id_agente='"+ request.getParameter("id_agente")+ "' ");
+                                    request.getRequestDispatcher("consultarAgente.jsp").forward(request, response);
                                     
          }catch(Exception e){
          out.print(e);
