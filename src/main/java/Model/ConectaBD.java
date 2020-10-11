@@ -19,7 +19,8 @@ public class ConectaBD {
     public static Connection con;
     public static String usuario = "root";
     public static String passw = "";
-    public static String url = "jdbc:mysql://localhost:3306/prueba?serverTimezone=UTC";
+    public static String url = "jdbc:mysql://localhost:3306/software?useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC";
+    
     
     public static Connection abrir(){
         try {

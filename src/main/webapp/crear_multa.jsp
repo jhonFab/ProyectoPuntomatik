@@ -1,3 +1,8 @@
+<%-- 
+    Document   : crearInfraccion
+    Created on : 10/10/2020, 07:06:33 p. m.
+    Author     : Juan David Castaño
+--%>
 <%@page import="java.sql.*"%>
 <%@page import="com.mysql.jdbc.Driver"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -10,38 +15,38 @@
         <title>Crear agente</title>
     </head>
     <body>
-        <h1 class="text-center mt-5">Registrar Agentes</h1>
+        <h1 class="text-center mt-5">Registrar multa</h1>
         <hr style="width:75%; border-color: blue" >
         <div class="container mt-5">
             <div class="row">
                 <div class="col-sm">
 
-                    <form action="crearAgente.jsp" method="post">
+                    <form action="crear_multa.jsp" method="post">
                        
-                         <div class="form-group">
-                            <label for="id_agente">Cedula</label>
+                        <div class="form-group">
+                            <label for="id_agente">id agente</label>
                             <input type="number" class="form-control" id="id_agente" name="id_agente" placeholder="Cedula" required="required">
                         </div>
-                         <div class="form-group">
-                            <label for="nombre">Nombre</label>
-                            <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre" required="required">
-                       
-                         <div class="form-group">
-                            <label for="telefono">Telefono</label>
-                            <input type="number" class="form-control" id="telefono" name="telefono" placeholder="Telefono" required="required">
+                        <div class="form-group">
+                            <label for="id_conductor">id conductor</label>
+                            <input type="number" class="form-control" id="id_conductor" name="id_conductor" placeholder="id conductor" required="required">
+                        </div>
+                        <div class="form-group">
+                            <label for="placa">placa vehiculo</label>
+                            <input type="text" class="form-control" id="placa" name="placa1" placeholder="Placa" required="required">
                         </div>
                         
                         <div class="form-group">
-                            <label for="usuario">Usuario</label>
-                            <input type="text" class="form-control" id="usuario" name="usuario" placeholder="Usuario" required="required">
+                            <label for="infraccion">id infracción</label>
+                            <input type="number" class="form-control" id="infraccion" name="infraccion" placeholder="infraccion" required="required">
                         </div>
                         <div class="form-group">
-                            <label for="contrasena">Contraseña</label>
-                            <input type="password" class="form-control" id="contrasena" name="contrasena" placeholder="Contraseña" required="required">
+                            <label for="fecha">fecha</label>
+                            <input type="date" class="form-control" id="fecha" name="fecha" placeholder="fecha" required="required">
                         </div>
                         <div class="form-group">
-                            <label for="id_seccional">seccional</label>
-                            <input type="text" class="form-control" id="nombre" name="id_seccional" placeholder="id_seccional">
+                            <label for="lugar">lugar</label>
+                            <input type="text" class="form-control" id="lugar" name="lugar" placeholder="lugar">
                         </div>
                         <button type="submit" name="enviar" class="btn btn-primary">Guardar <i class="fa fa-floppy-o" aria-hidden="true"></i></button>
                         <button type="submit" name="enviar" class="btn btn-primary"> Cancelar  <i class="fa fa-times" aria-hidden="true"></i>
@@ -55,12 +60,14 @@
         </div>
         <%
             if (request.getParameter("enviar") !=null) {
+                //String multa= request.getParameter("id_multa");
                 String cedula= request.getParameter("id_agente");
-                String nombre = request.getParameter("nombre");                             
-                String telefono = request.getParameter("telefono");
-                String usuario= request.getParameter("usuario");
-                String contraseña= request.getParameter("contrasena");
-                String seccional= request.getParameter("id_seccional");
+                String cedula2 = request.getParameter("id_conductor");                             
+                String placaVehiculo = request.getParameter("placa1");
+                String id_infraccion= request.getParameter("infraccion");
+                String fecha= request.getParameter("fecha");
+                String ubicacion= request.getParameter("lugar");
+      
                 
 
                 try {
@@ -73,7 +80,7 @@
                     con = DriverManager.getConnection(url, username, password);           
                    
                     st=con.createStatement();
-                    st.executeUpdate("insert into `agente` (id_agente,nombre,telefono,usuario,contrasena,id_seccional ) values("+cedula+",'"+nombre+"',"+telefono+",'"+usuario+"','"+contraseña+"','"+seccional+"');");
+                    st.executeUpdate("insert into `multa` (id_agente,id_conductor,id_vehiculo,id_infraccion,fecha,lugar ) values("+cedula+","+cedula2+",'"+placaVehiculo+"',"+id_infraccion+",'"+fecha+"','"+ubicacion+"');");
                     request.getRequestDispatcher("index.jsp").forward(request, response);
                 } catch (Exception e) {
                     out.print("se encontro un error  : "+e);
