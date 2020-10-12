@@ -34,6 +34,8 @@
             String idinfraccion = null;
             String gravedad = null;
             String detalle = null;
+
+            String verificar = null;
         %>
 
         <h1>Historial Conductores</h1>
@@ -42,7 +44,7 @@
             <form class="form-group">
                 <div class="form-group">
                     <label for="cedula">Buscar por Cedula</label>
-                    <input type="text" name="cedulaBuscar" class="form-control mr-sm-2"  aria-describedby="emailHelp">
+                    <input type="text" name="cedulaBuscar" class="form-control mr-sm-2"  aria-describedby="emailHelp" >
                 </div>
 
                 <button type="submit" name="buscar" class="btn btn-primary">Buscar</button>
@@ -81,9 +83,10 @@
 
                             st = con.createStatement();
                             rs = st.executeQuery("SELECT c.id_conductor, c.nombre, m.fecha, m.lugar, v.id_vehiculo, v.placa, v.tipo_vehiculo, i.id_infraccion, i.gravedad, i.detalle FROM conductor c,multa m, infraccion i, vehiculo v WHERE c.id_conductor=" + cedulaBuscar + " AND m.id_conductor=" + cedulaBuscar + " AND m.id_infraccion=i.id_infraccion AND c.id_vehiculo=v.id_vehiculo");
-                            while (rs.next()) {
-                             
                             
+                            while (rs.next()) {
+
+                                
 
                 %>
                 <tr>
@@ -98,21 +101,23 @@
                     <td><%= rs.getString(9)%></td>
                     <td><%= rs.getString(10)%></td>
                 </tr>
-                <%  }
-                    } catch (Exception e) {
-                        out.print("Error Mysql" + e);
+                <%
                     }
 
-                %>
-                <%            }
-                %>
-            </tbody>
-        </table>
+                } catch (Exception e) {%>
+            <div class="alert alert-danger" role="alert"><%
+                        out.print("Alerta: Campos vacios");
+                    }
+                }
+                %></div>
 
-            <div class="container mt-5 ">
-                <button type="submit" class="btn btn-light "><a href="index.jsp"><i class="fa fa-reply" aria-hidden="true">Regresar Pagina Principal</i></a></button>
-            </div>
+        </tbody>
+    </table>
+
+    <div class="container mt-5 ">
+        <button type="submit" class="btn btn-light "><a href="index.jsp"><i class="fa fa-reply" aria-hidden="true">Regresar Pagina Principal</i></a></button>
+    </div>
 
 
-    </body>
+</body>
 </html>
