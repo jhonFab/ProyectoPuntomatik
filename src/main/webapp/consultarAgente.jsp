@@ -60,12 +60,14 @@
                         </tr>
                         </thead>
                         <tbody>
+                            
                             <%                                try {
 
                                     String url = "jdbc:mysql://localhost:3306/software?useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC";
                                     String username = "root";
                                     String password = "";
                                     Class.forName("com.mysql.jdbc.Driver");
+                                    
                                     con = DriverManager.getConnection(url, username, password);
                                     st = con.createStatement();
                                     rs = st.executeQuery("SELECT * FROM `agente`");

@@ -15,6 +15,12 @@
         <title>Crear agente</title>
     </head>
     <body>
+             <%
+            Connection con = null;
+            Statement st = null;
+            ResultSet rs = null;
+
+        %>
         <h1 class="text-center mt-5">Registrar multa</h1>
         <hr style="width:75%; border-color: blue" >
         <div class="container mt-5">
@@ -24,12 +30,95 @@
                     <form action="crear_multa.jsp" method="post">
                        
                         <div class="form-group">
-                            <label for="id_agente">id agente</label>
-                            <input type="number" class="form-control" id="id_agente" name="id_agente" placeholder="Cedula" required="required">
+                            <label for="id_agente">Codigo agente</label>
+                            <!--<input type="number" class="form-control" id="id_agente" name="id_agente" placeholder="Cedula" required="required">-->
+                            <select id="seleccion"  onchange="obtenerDato();">
+                                    <option>Seleecione su codigo</option>
+                                    <%                                try {
+
+                                            String url = "jdbc:mysql://localhost:3306/software?useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC";
+                                            String username = "root";
+                                            String password = "";
+                                            Class.forName("com.mysql.jdbc.Driver");
+                                            con = DriverManager.getConnection(url, username, password);
+                                            st = con.createStatement();
+                                            rs = st.executeQuery("SELECT * FROM `agente`");
+                                            while (rs.next()) {
+                                    %>
+
+
+                                    <option ><%= rs.getInt(1)%></option>
+
+
+                                    <%
+                                       
+                                        }
+                                        } catch (Exception e) {
+                                            out.print("Error Mysql" + e);
+                                        }
+                                    %>
+
+                                </select>
+                                 <input type="text" class="form-control" id="id_agente" name="id_agente" placeholder="" required="required" readonly="readonly">
+
+                                <script>
+                                    function obtenerDato() {
+
+                                        var d = document.getElementById("seleccion").value;
+
+                                        document.getElementById("id_agente" ).value = d;
+                                    }
+                                    
+                             
+                           
+                                                           </script>
                         </div>
                         <div class="form-group">
-                            <label for="id_conductor">id conductor</label>
-                            <input type="number" class="form-control" id="id_conductor" name="id_conductor" placeholder="id conductor" required="required">
+                            <label for="id_conductor">Código conductor</label>
+                           <!-- <input type="number" class="form-control" id="id_conductor" name="id_conductor" placeholder="id conductor" required="required">-->
+                            <select id="seleccion1"  onchange="obtenerDato1();">
+                                    <option>Seleecione el conductor</option>
+                                    <%     
+                           Connection con1= null;
+            Statement st1 = null;
+            ResultSet rs1 = null;
+                           try {
+
+                                            String url1 = "jdbc:mysql://localhost:3306/software?useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC";
+                                            String username1 = "root";
+                                            String password1 = "";
+                                            Class.forName("com.mysql.jdbc.Driver");
+                                            con1= DriverManager.getConnection(url1, username1, password1);
+                                            st1 = con.createStatement();
+                                            rs1 = st.executeQuery("SELECT * FROM `conductor`");
+                                            while (rs1.next()) {
+                                    %>
+
+
+                                    <option ><%= rs1.getInt(1)%></option>
+
+
+                                    <%
+                                            }
+                                        } catch (Exception e) {
+                                            out.print("Error Mysql" + e);
+                                        }
+                                    %>
+
+                                </select>
+                                 <input type="text" class="form-control" id="id_conductor" name="id_conductor" placeholder="" required="required" readonly="readonly">
+
+                                <script>
+                                    function obtenerDato1() {
+
+                                        var d1= document.getElementById("seleccion1").value;
+
+                                        document.getElementById("id_conductor" ).value = d1;
+                                    }
+                                    
+                             
+                           
+                                                           </script>
                         </div>
                         <div class="form-group">
                             <label for="placa">placa vehiculo</label>
@@ -37,9 +126,51 @@
                         </div>
                         
                         <div class="form-group">
-                            <label for="infraccion">id infracción</label>
-                            <input type="number" class="form-control" id="infraccion" name="infraccion" placeholder="infraccion" required="required">
+                            <label for="infraccion">Seleccione código infracción</label>
+                          <!--  <input type="number" class="form-control" id="infraccion" name="infraccion" placeholder="infraccion" required="required">-->
+                              <select id="seleccion2"  onchange="obtenerDato2();">
+                                    <option>Seleecione la infraccion</option>
+                                    <%     
+                    
+                           try {
+
+                                            String url1 = "jdbc:mysql://localhost:3306/software?useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC";
+                                            String username1 = "root";
+                                            String password1 = "";
+                                            Class.forName("com.mysql.jdbc.Driver");
+                                            con1= DriverManager.getConnection(url1, username1, password1);
+                                            st1 = con.createStatement();
+                                            rs1 = st1.executeQuery("SELECT * FROM `infraccion`");
+                                            while (rs1.next()) {
+                                    %>
+
+
+                                    <option ><%= rs1.getInt(1)%></option>
+
+
+                                    <%
+                                            }
+                                        } catch (Exception e) {
+                                            out.print("Error Mysql" + e);
+                                        }
+                                    %>
+
+                                </select>
+                                 <input type="text" class="form-control"  id="infraccion" name="infraccion" placeholder="" required="required" readonly="readonly">
+
+                                <script>
+                                    function obtenerDato2() {
+
+                                        var d2= document.getElementById("seleccion2").value;
+
+                                        document.getElementById("infraccion" ).value = d2;
+                                    }
+                                    
+                             
+                           
+                                                           </script>
                         </div>
+                                    
                         <div class="form-group">
                             <label for="fecha">fecha</label>
                             <input type="date" class="form-control" id="fecha" name="fecha" placeholder="fecha" required="required">
@@ -48,9 +179,8 @@
                             <label for="lugar">lugar</label>
                             <input type="text" class="form-control" id="lugar" name="lugar" placeholder="lugar">
                         </div>
-                        <button type="submit" name="enviar" class="btn btn-primary">Guardar <i class="fa fa-floppy-o" aria-hidden="true"></i></button>
-                        <button type="submit" name="enviar" class="btn btn-primary"> Cancelar  <i class="fa fa-times" aria-hidden="true"></i>
-</button>
+                       <button type="submit" name="enviar" class="btn btn-primary">Guardar <i class="fa fa-floppy-o" aria-hidden="true"></i></button>
+                                         <a href="index.jsp">Cancelar  <i class="fa fa-times" aria-hidden="true"></i></a>     
                        
 
                     </form>
@@ -71,8 +201,7 @@
                 
 
                 try {
-                    Connection con=null;
-                    Statement st=null;
+                   
                     String url = "jdbc:mysql://localhost:3306/software?useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC";
                     String username = "root";
                     String password = "";

@@ -10,11 +10,9 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
         <title>Principal</title>
-
     </head>
-
 
     <body  style="background-image: url('https://besthqwallpapers.com/img/original/99458/blue-creative-texture-dark-blue-abstract-background-creative-blue-backgrounds-background-with-lines-stylish-blue-texture.jpg');">
 
@@ -24,14 +22,11 @@
                 response.sendRedirect("login.jsp");
             }
         %>
-
+        <h1 style="color: white;text-align: center;font-size: 56px"; >Bienvenidos</h1>
         <h1 style="color: white;text-align: center;font-size: 48px" class="mt-5"> PuntoMatik </h1>
         <h1 style="color: white;text-align: center;font-size: 48px"> Sistema unificado para las infracciones de conductores</h1>
-        <hr style="width:95%; border-color: white" >
+        <hr style="width:95%; border-color: white; text-align: center" >
 
-
-
-    <head>
         <title>Menu Desplegable</title>
         <style type="text/css">
 
@@ -92,16 +87,13 @@
             <ul class="nav">
                 <li><a href="index.jsp">Inicio</a></li>
                 <li><a href="">Consultas</a>
-                    <ul>
-                        <li><a href="">Consultas Puntos</a></li>
-                        <li><a href="historialConductor">Consultas infracciones</a></li>
-                        <li><a href="consultar.jsp">Consultas Conductores</a></li>
-                        <li><a href="">Historial</a>
+                    <ul>                
+                       
+                        <li><a href="consultarAgente.jsp">Consultas lista Conductores</a></li>
+                        <li><a href="">Conductor</a>
                             <ul>
-                                <li><a href="historialConductor.jsp">Conductor</a></li>
-                                <li><a href="">Submenu2</a></li>
-                                <li><a href="">Submenu3</a></li>
-                                <li><a href="">Submenu4</a></li>
+                                <li><a href="historialConductor.jsp">Historial</a></li>
+                                <li><a href="">consultas puntos</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -109,7 +101,7 @@
                 <li><a href="">Registrar</a>
                     <ul>
                         <li><a href="crearAgente.jsp">Agentes</a></li>
-                         <li><a href="">consulta</a>
+                        <li><a href="">consulta</a>
                             <ul>
                                 <li><a href="consultarAgente.jsp">Agentes</a></li>
                                 <li><a href="">Submenu2</a></li>
@@ -117,11 +109,11 @@
                                 <li><a href="">Submenu4</a></li>
                             </ul>
                         </li> 
-                        
-                        
+
+
                         <li><a href="">Conductores</a></li>
                         <li><a href="">Vehiculos</a></li>
-                        <li><a href="">Infreaccion</a></li>
+                        <li><a href="crear_multa.jsp">multas</a></li>
                     </ul>
                 </li>
                 <li><a href="">Otros</a>
@@ -138,22 +130,5 @@
         </div>
 
     </body>
-
-
-
-
-    <form action="index.jsp" method="post">
-
-
-        <input type="submit" value="ir" style="animation: linear">
-    </form>
-
-    <h1 style="text-decoration: blue">Bienvenidos</h1>
-
-    <form action="index.jsp" method="post">
-        <input type="submit" value="Consultar">
-
-    </form>
-
 </body>
 </html>

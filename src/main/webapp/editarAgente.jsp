@@ -10,6 +10,7 @@
         <title>editar empleado</title>
     </head>
     <body>
+        
         <% 
                 String cedula= request.getParameter("id_agente");  
                 String nombre= request.getParameter("nombre");         
@@ -19,8 +20,9 @@
                 String seccional= request.getParameter("seccional"); 
                 
         %>
-        <h1 class="text-center mt-5">Modificar agente</h1>
+        <h1 class="text-center mt-5"><i class="fa fa-address-card-o" aria-hidden="true">  Modificar agente</i></h1>
         <hr style="width:75%; border-color: blue" >
+        
         <div class="container mt-5">
             <div class="row">
                 <div class="col-sm">
