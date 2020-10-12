@@ -35,26 +35,34 @@
             
         %>
 
-        <h1>Busqueda de agentes</h1>
+        <h1>Busqueda de agentes</h1>     
+           <div class="container mt-5 ">
+            <form class="form-group">
+                <div class="form-group">
+                    <label for="cedula">Buscar por Cedula</label>
+                    <input type="text" name="cedulaBuscar" class="form-control mr-sm-2"  aria-describedby="emailHelp">
+                </div>
 
-        
+                <button type="submit" name="buscar" class="btn btn-primary">Buscar</button>
+            </form>
+
+        </div>
 
 
 
         <table class="table table-bordered container mt-5">
             <thead class="thead-dark">
                 <tr>
-                    <th scope="col">Cedula</th>
+                   
                     <th scope="col">Nombre</th>
                     <th scope="col">Telefono</th>
-                    <th scope="col">Usuario</th>
-                    <th scope="col">Contraseña</th>
+                    <th scope="col">ID</th>
                     <th scope="col">Seccional</th>
                     
                 </tr>
             </thead>
             <tbody>
-                <%            String cedulaBuscar = request.getParameter("id_agente");
+                <%            String cedulaBuscar = request.getParameter("cedulaBuscar");
                     if (request.getParameter("buscar") != null) {
                         try {
 
@@ -65,7 +73,8 @@
                             con = DriverManager.getConnection(url, username, password);
 
                             st = con.createStatement();
-                            rs = st.executeQuery("SELECT c.id_agente, c.nombre, m.telefono, m.usuario, v.contrasena, v.seccional");
+                            
+                            rs = st.executeQuery("SELECT `nombre`,`telefono`,`id_agente`,`id_seccional` FROM `agente` WHERE id_agente="+ cedulaBuscar + " ");
                             while (rs.next()) {
                              
                             
@@ -74,10 +83,9 @@
                 <tr>
                     <th scope="row"> <%= rs.getString(1)%> </th>
                     <td><%= rs.getString(2)%></td>
-                    <td><%= rs.getString(3)%></td>
-                    <td><%= rs.getString(4)%></td>
-                    <td><%= rs.getString(5)%></td>
-                    <td><%= rs.getString(6)%></td>
+                    <td><%= rs.getInt(3)%></td>
+                    <td><%= rs.getInt(4)%></td>
+                    
                   
                 </tr>
                 <%  }

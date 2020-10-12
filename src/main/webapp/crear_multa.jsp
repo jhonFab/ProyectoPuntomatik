@@ -173,7 +173,7 @@
                                     
                         <div class="form-group">
                             <label for="fecha">fecha</label>
-                            <input type="date" class="form-control" id="fecha" name="fecha" placeholder="fecha" required="required">
+                            <input type="datetime" class="form-control" id="fecha" name="fecha" placeholder="fecha" required="required">
                         </div>
                         <div class="form-group">
                             <label for="lugar">lugar</label>

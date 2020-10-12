@@ -34,7 +34,8 @@
       <input class="form-control mr-sm-2" type="search" placeholder="Buscar por cedula" aria-label="Search">
            
     
-    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+      <button type="submit" class="btn btn-outline-success my-2 my-sm-0" type="submit"><a href="mostrarAgente.jsp">Buscar</button>
+  
   </form>
 </nav>
             
@@ -77,12 +78,12 @@
                                 <th scope="row"> <%= rs.getInt(1)%> </th>
                                 <td><%= rs.getString(2)%></td>
                                 <td><%= rs.getString(3)%></td>
-                                <td><%= rs.getInt(4)%></td>
-                                <td><%= rs.getInt(5)%></td>
-                                <td><%= rs.getString(6)%></td>
+                                <td><%= rs.getString(4)%></td>
+                                <td><%= rs.getString(5)%></td>
+                                <td><%= rs.getInt(6)%></td>
                                 <td> 
-                                    <a href="editarAgente.jsp?id_agente=<%= rs.getInt(1)%> &nombre=<%= rs.getString(2)%> &telefono=<%= rs.getString(3)%> &usuario=<%= rs.getInt(4)%> &contrasena=<%= rs.getInt(5)%> &id_seccional=<%= rs.getInt(6)%>" ><i class="fa fa-pencil" aria-hidden="true"> Editar</i></a>
-                                    <a href="eliminarAgente.jsp?id_agente=<%= rs.getString(1)%> " class="ml-3"><i class="fa fa-trash-o" aria-hidden="true">Eliminar</i></a>
+                                    <a href="editarAgente.jsp?id_agente=<%= rs.getInt(1)%> &nombre=<%= rs.getString(2)%> &telefono=<%= rs.getString(3)%> &usuario=<%= rs.getString(4)%> &contrasena=<%= rs.getString(5)%> &id_seccional=<%= rs.getInt(6)%>" ><i class="fa fa-pencil" aria-hidden="true"> Editar</i></a>
+                                    <a href="eliminarAgente.jsp?id_agente=<%= rs.getInt(1)%> " class="ml-3"><i class="fa fa-trash-o" aria-hidden="true">Eliminar</i></a>
                                    
                                     
                                 </td>
