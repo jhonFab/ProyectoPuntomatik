@@ -16,7 +16,7 @@
             <div class="row">
                 <div class="col-sm">
 
-                    <form action="crearAgente.jsp" method="post">
+                    <form action="crearConductor.jsp" method="post">
                        
                          <div class="form-group">
                             <label for="id_conductor">Cedula</label>
@@ -28,20 +28,61 @@
                        
                          <div class="form-group">
                             <label for="telefono">Telefono</label>
-                            <input type="number" class="form-control" id="telefono" name="telefono" placeholder="Telefono" required="required">
+                            <input type="text" class="form-control" id="telefono" name="telefono" placeholder="Telefono" required="required">
                         </div>
                         
                         <div class="form-group">
-                            <label for="usuario">Usuario</label>
-                            <input type="text" class="form-control" id="usuario" name="usuario" placeholder="Usuario" required="required">
+                            <label for="licencia">Licencia</label>
+                            <input type="text" class="form-control" id="numLicencia" name="numLicencia" placeholder="numero de licencia" required="required">
                         </div>
                         <div class="form-group">
-                            <label for="contrasena">Contraseña</label>
-                            <input type="password" class="form-control" id="contrasena" name="contrasena" placeholder="Contraseña" required="required">
+                            <label for="id vehiculo">Seleccione id del vehiculo</label>
+                          <!--  <input type="number" class="form-control" id="infraccion" name="infraccion" placeholder="infraccion" required="required">-->
+                              <select id="seleccion"  onchange="obtenerDato();">
+                                    <option>Seleccione la infraccion</option>
+                                    <%     
+                    
+                           try {
+
+                                            String url1 = "jdbc:mysql://localhost:3306/software?useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC";
+                                            String username1 = "root";
+                                            String password1 = "";
+                                            Class.forName("com.mysql.jdbc.Driver");
+                                            con1= DriverManager.getConnection(url1, username1, password1);
+                                            st1 = con.createStatement();
+                                            rs1 = st1.executeQuery("SELECT id_vehiculo FROM `vehiculo`");
+                                            while (rs1.next()) {
+                                    %>
+
+
+                                    <option ><%= rs1.getInt(1)%></option>
+
+
+                                    <%
+                                            }
+                                        } catch (Exception e) {
+                                            out.print("Error Mysql" + e);
+                                        }
+                                    %>
+
+                                </select>
+                                 <input type="number" class="form-control"  id="id_vehiculo" name="id_vehiculo" placeholder="" required="required" readonly="readonly">
+
+                                <script>
+                                    function obtenerDato2() {
+
+                                        var d= document.getElementById("seleccion").value;
+
+                                        document.getElementById("id_vehiculo" ).value = d;
+                                    }
+                                    
+                             
+                           
+                                                           </script>
                         </div>
                         <div class="form-group">
-                            <label for="id_seccional">seccional</label>
-                            <input type="text" class="form-control" id="nombre" name="id_seccional" placeholder="id_seccional">
+                            <label for="Puntos">seccional</label>
+                            <input type="number" class="form-control" id="num_puntos" name="num_puntos" placeholder="numero de puntos">
                         </div>
                         <button type="submit" name="enviar" class="btn btn-primary">Guardar <i class="fa fa-floppy-o" aria-hidden="true"></i></button>
                         <button type="submit" name="enviar" class="btn btn-primary"> Cancelar  <i class="fa fa-times" aria-hidden="true"></i>
@@ -55,12 +96,12 @@
         </div>
         <%
             if (request.getParameter("enviar") !=null) {
-                String cedula= request.getParameter("id_agente");
+                String cedula= request.getParameter("id_conductor");
                 String nombre = request.getParameter("nombre");                             
                 String telefono = request.getParameter("telefono");
-                String usuario= request.getParameter("usuario");
-                String contraseña= request.getParameter("contrasena");
-                String seccional= request.getParameter("id_seccional");
+                String licencia= request.getParameter("numLicencia");
+                String idV= request.getParameter("id_vehiculo");
+                String numP= request.getParameter("num_puntos");
                 
 
                 try {
@@ -73,7 +114,7 @@
                     con = DriverManager.getConnection(url, username, password);           
                    
                     st=con.createStatement();
-                    st.executeUpdate("insert into `agente` (id_agente,nombre,telefono,usuario,contrasena,id_seccional ) values("+cedula+",'"+nombre+"',"+telefono+",'"+usuario+"','"+contraseña+"','"+seccional+"');");
+                    st.executeUpdate("insert into `vehiculo` (id_conductor,nombre,telefono,licencia,id_vehiculo,puntos ) values("+cedula+",'"+nombre+"','"+telefono+"','"+licencia+"',"+idV+","+numP+");");
                     request.getRequestDispatcher("index.jsp").forward(request, response);
                 } catch (Exception e) {
                     out.print("se encontro un error  : "+e);

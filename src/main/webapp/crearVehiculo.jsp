@@ -16,78 +16,25 @@
             ResultSet rs = null;
 
         %>
-        <h1 class="text-center mt-5">Registrar Agentes</h1>
+        <h1 class="text-center mt-5">Registrar vehiculos</h1>
         <hr style="width:75%; border-color: blue" >
         <div class="container mt-5">
             <div class="row">
                 <div class="col-sm">
 
-                    <form action="crearAgente.jsp" method="post">
+                    <form action="crearVehiculo.jsp" method="post">
 
                         <div class="form-group">
-                            <label for="id_agente">Cedula</label>
-                            <input type="number" class="form-control" id="id_agente" name="id_agente" placeholder="Cedula" required="required">
+                            <label for="id_agente">Tipo de vehiculo</label>
+                            <input type="text" class="form-control" id="tipo_vehiculo" name="tipo_vehiculo" placeholder="tipo de vehiculo" required="required">
                         </div>
                         <div class="form-group">
-                            <label for="nombre">Nombre</label>
-                            <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre" required="required">
+                            <label for="nombre">id del vehiculo</label>
+                            <input type="number" class="form-control" id="id_vehiculo" name="id_vehiculo" placeholder="" required="required">
 
                             <div class="form-group">
-                                <label for="telefono">Telefono</label>
-                                <input type="number" class="form-control" id="telefono" name="telefono" placeholder="Telefono" required="required">
-                            </div>
-
-                            <div class="form-group">
-                                <label for="usuario">Usuario</label>
-                                <input type="text" class="form-control" id="usuario" name="usuario" placeholder="Usuario" required="required">
-                            </div>
-                            <div class="form-group">
-                                <label for="contrasena">Contraseña</label>
-                                <input type="password" class="form-control" id="contrasena" name="contrasena" placeholder="Contraseña" required="required">
-                            </div>
-                            <div class="form-group">
-
-
-                                <select id="seleccion"  onchange="obtenerDato();">
-                                    <option>Seleecione seccional</option>
-                                    <%                                try {
-
-                                            String url = "jdbc:mysql://localhost:3306/software?useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC";
-                                            String username = "root";
-                                            String password = "";
-                                            Class.forName("com.mysql.jdbc.Driver");
-                                            con = DriverManager.getConnection(url, username, password);
-                                            st = con.createStatement();
-                                            rs = st.executeQuery("SELECT * FROM `seccional`");
-                                            while (rs.next()) {
-                                    %>
-
-
-                                    <option ><%= rs.getInt(1)%></option>
-
-
-                                    <%
-                                            }
-                                        } catch (Exception e) {
-                                            out.print("Error Mysql" + e);
-                                        }
-                                    %>
-
-                                </select>
-                                <label for="usuario">1. Armenia  2. Circasia</label>
-                                <input type="text" class="form-control" id="id_seccional" name="id_seccional" placeholder="" required="required" readonly="readonly">
-
-                                <script>
-                                    function obtenerDato() {
-
-                                        var d = document.getElementById("seleccion").value;
-
-                                        document.getElementById("id_seccional").value = d;
-                                    }
-                                    
-                             
-                           
-                                                           </script>
+                                <label for="placa">Placa del vehiculo</label>
+                                <input type="text" class="form-control" id="placa" name="placa" placeholder="placa" required="required">
                             </div>
                                     <button type="submit" name="enviar" class="btn btn-primary">Guardar <i class="fa fa-floppy-o" aria-hidden="true"></i></button>
                                          <a href="index.jsp">Cancelar  <i class="fa fa-times" aria-hidden="true"></i></a>            
@@ -100,13 +47,10 @@
         </div>
         <%
             if (request.getParameter("enviar") != null) {
-                String cedula = request.getParameter("id_agente");
-                String nombre = request.getParameter("nombre");
-                String telefono = request.getParameter("telefono");
-                String usuario = request.getParameter("usuario");
-                String contraseña = request.getParameter("contrasena");
-                String seccional = request.getParameter("id_seccional");
-
+                String tipoV = request.getParameter("tipo_vehiculo");
+                String idV = request.getParameter("id_vehiculo");
+                String placa = request.getParameter("placa");
+                
                 try {
 
                     String url = "jdbc:mysql://localhost:3306/software?useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC";
@@ -116,7 +60,7 @@
                     con = DriverManager.getConnection(url, username, password);
 
                     st = con.createStatement();
-                    st.executeUpdate("insert into `agente` (id_agente,nombre,telefono,usuario,contrasena,id_seccional ) values(" + cedula + ",'" + nombre + "'," + telefono + ",'" + usuario + "','" + contraseña + "','" + seccional + "');");
+                    st.executeUpdate("insert into `vehiculo` (tipo_vehiculo,id_vehiculo,placa ) values('" + tipoV + "'," + idV + ",'" + placa + "');");
                     request.getRequestDispatcher("index.jsp").forward(request, response);
                 } catch (Exception e) {
                     out.print("se encontro un error  : " + e);
