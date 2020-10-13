@@ -4,6 +4,7 @@
     Author     : jflin
 --%>
 
+<%@page import="java.text.SimpleDateFormat"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -15,6 +16,10 @@
     </head>
 
     <body  style="background-image: url('https://besthqwallpapers.com/img/original/99458/blue-creative-texture-dark-blue-abstract-background-creative-blue-backgrounds-background-with-lines-stylish-blue-texture.jpg');">
+        <% java.text.DateFormat fecha = new SimpleDateFormat("EEE, d MMM yyyy ");%>
+ 
+        <h2 style="color: white;text-align: left;font-size: 25px"; >Fecha : <%= fecha.format(new java.util.Date())%></h2>
+        <!--<iframe class="text-center" width="200" height="120" src="https://www.youtube.com/embed/uosPs8z-alI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>-->
 
         <%
             HttpSession sesion = request.getSession();
@@ -82,53 +87,54 @@
 
         </style>
     </head>
-    <body>
-        <div id="header">
-            <ul class="nav">
-                <li><a href="index.jsp">Inicio</a></li>
-                <li><a href="">Consultas</a>
-                    <ul>                
-                       
-                        <li><a href="consultarAgente.jsp">Consultas lista Conductores</a></li>
-                        <li><a href="">Conductor</a>
-                            <ul>
-                                <li><a href="historialConductor.jsp">Historial</a></li>
-                                <li><a href="">consultas puntos</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
-                <li><a href="">Registrar</a>
-                    <ul>
-                        <li><a href="crearAgente.jsp">Agentes</a></li>
-                        <li><a href="">consulta</a>
-                            <ul>
-                                <li><a href="consultarAgente.jsp">Agentes</a></li>
-                                <li><a href="">Submenu2</a></li>
-                                <li><a href="">Submenu3</a></li>
-                                <li><a href="">Submenu4</a></li>
-                            </ul>
-                        </li> 
+<body>
+    <div id="header">
+        <ul class="nav">
+            <li><a href="index.jsp">Inicio</a></li>
+            <li><a href="">Consultas</a>
+                <ul>                
+
+                    <li><a href="consultarAgente.jsp">Consultas lista Conductores</a></li>
+                    <li><a href="">Conductor</a>
+                        <ul>
+                            <li><a href="historialConductor.jsp">Historial</a></li>
+                            <li><a href="">consultas puntos</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li><a href="">Registrar</a>
+                <ul>
+                    <li><a href="crearAgente.jsp">Agentes</a></li>
+                    <li><a href="">consulta</a>
+                        <ul>
+                            <li><a href="consultarAgente.jsp">Agentes</a></li>
+                            <li><a href="">Submenu2</a></li>
+                            <li><a href="">Submenu3</a></li>
+                            <li><a href="">Submenu4</a></li>
+                        </ul>
+                    </li> 
 
 
-                        <li><a href="">Conductores</a></li>
-                        <li><a href="">Vehiculos</a></li>
-                        <li><a href="crear_multa.jsp">multas</a></li>
-                    </ul>
-                </li>
-                <li><a href="">Otros</a>
-                    <ul>
-                        <li><a href=".jsp">Eliminar</a></li>
-                        <li><a href="">pendiente</a></li>
-                        <li><a href="">pendiente</a></li>
-                        <li><a href="">pendeinte</a></li>
-                    </ul>
+                    <li><a href="">Conductores</a></li>
+                    <li><a href="">Vehiculos</a></li>
+                    <li><a href="crear_multa.jsp">multas</a></li>
+                </ul>
+            </li>
+            <li><a href="">Otros</a>
+                <ul>
+                    <li><a href=".jsp">Eliminar</a></li>
+                    <li><a href="">pendiente</a></li>
+                    <li><a href="">pendiente</a></li>
+                    <li><a href="">pendeinte</a></li>
+                </ul>
 
 
-                </li>
-            </ul>
-        </div>
+            </li>
+        </ul>
+    </div>
 
-    </body>
+</body>
+
 </body>
 </html>

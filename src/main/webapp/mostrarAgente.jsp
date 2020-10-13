@@ -4,6 +4,7 @@
     Author     : Jhon Alexander
 --%>
 
+<%@page import="java.text.SimpleDateFormat"%>
 <%@page import="com.mysql.cj.protocol.Resultset"%>
 <%@page import="com.mysql.jdbc.Driver"%>
 <%@page import="java.sql.Statement"%>
@@ -19,7 +20,7 @@
         <title>Busqueda</title>
     </head>
     <body class="p-3 mb-2 btn-light text-black">
-
+   
         <%
             Connection con = null;
             Statement st = null;
@@ -89,12 +90,14 @@
                   
                 </tr>
                 <%  }
-                    } catch (Exception e) {
-                        out.print("Error Mysql" + e);
+                    } catch (Exception e) {%>
+            <div class="alert alert-danger" role="alert"><%
+                out.print("Alerta : ingrese un dato");
+                %></div>
+                    
+                       <%
+                    }                   
                     }
-
-                %>
-                <%            }
                 %>
             </tbody>
         </table>
