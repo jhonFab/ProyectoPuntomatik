@@ -121,15 +121,56 @@
                                                            </script>
                         </div>
                         <div class="form-group">
-                            <label for="placa">placa vehiculo</label>
-                            <input type="text" class="form-control" id="placa" name="placa1" placeholder="Placa" required="required">
+                            <label for="placa">Seleccione la placa del vehiculo</label>
+                            <!--input type="text" class="form-control" id="placa" name="placa1" placeholder="Placa" required="required"-->
+                              <select id="seleccion3"  onchange="obtenerDato3();">
+                                  <option>Seleccione la placa del vehiculo</option>
+                                    <%
+                          try {
+
+                                            String url1 = "jdbc:mysql://localhost:3306/software?useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC";
+                                            String username1 = "root";
+                                            String password1 = "";
+                                            Class.forName("com.mysql.jdbc.Driver");
+                                            con1= DriverManager.getConnection(url1, username1, password1);
+                                            st1 = con.createStatement();
+                                            rs1 = st1.executeQuery("SELECT id_vehiculo FROM `vehiculo`");
+                                            while (rs1.next()) {
+                                    %>
+
+
+                                    <option ><%= rs1.getInt(1)%></option>
+
+
+                                    <%
+                                            }
+                                        } catch (Exception e) {
+                                            out.print("Error Mysql" + " "+ e);
+                                        }
+                                    %>
+
+                                </select>
+                                 <input type="text" class="form-control"  id="id_vehiculo" name="id_vehiculo" placeholder="" required="required" readonly="readonly">
+
+                                <script>
+                                    function obtenerDato3() {
+
+                                        var d3= document.getElementById("seleccion3").value;
+
+                                        document.getElementById("id_vehiculo" ).value = d3;
+                                    }
+                                    
+                             
+                           
+                                                           </script>
+                        
                         </div>
                         
                         <div class="form-group">
                             <label for="infraccion">Seleccione código infracción</label>
                           <!--  <input type="number" class="form-control" id="infraccion" name="infraccion" placeholder="infraccion" required="required">-->
                               <select id="seleccion2"  onchange="obtenerDato2();">
-                                    <option>Seleecione la infraccion</option>
+                                    <option>Seleccione la infraccion</option>
                                     <%     
                     
                            try {
@@ -193,7 +234,7 @@
                 //String multa= request.getParameter("id_multa");
                 String cedula= request.getParameter("id_agente");
                 String cedula2 = request.getParameter("id_conductor");                             
-                String placaVehiculo = request.getParameter("placa1");
+                String placaVehiculo = request.getParameter("id_vehiculo");
                 String id_infraccion= request.getParameter("infraccion");
                 String fecha= request.getParameter("fecha");
                 String ubicacion= request.getParameter("lugar");

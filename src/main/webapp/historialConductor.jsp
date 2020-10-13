@@ -75,7 +75,7 @@
                     if (request.getParameter("buscar") != null) {
                         try {
 
-                            String url = "jdbc:mysql://localhost:3306/software";
+                            String url = "jdbc:mysql://localhost:3306/software?useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC";
                             String username = "root";
                             String password = "";
                             Class.forName("com.mysql.jdbc.Driver");
