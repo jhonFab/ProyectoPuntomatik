@@ -15,21 +15,23 @@
         <title>Login</title>
     </head>
     
-  <h1 style="text-align: center" class="mt-5"> PuntoMatik </h1>
-        <h1 style="text-align: center"> Inicio de sesión</h1>
+  <h1 style="color: white;text-align: center" class="mt-5"> PuntoMatik </h1>
+        <h1 style="color: white;text-align: center"> Inicio de sesión</h1>
         <hr style="width:75%; border-color: blue" >
-    <body>
+    <body  style="background-image: url('https://besthqwallpapers.com/img/original/99458/blue-creative-texture-dark-blue-abstract-background-creative-blue-backgrounds-background-with-lines-stylish-blue-texture.jpg');">
+        
+        
         <div class="container mt-5 ">
             <div class="row">
                 <div class="col-sm">
                     <form>
                         <div class="form-group">
-                            <label >Usuario</label>
+                            <label style="color: white" >Usuario</label>
                             <input type="text" class="form-control" name="usuario"placeholder="Ingrese usuario">
                             
                             </div>
                         <div class="form-group">
-                            <label >Password</label>
+                            <label style="color: white" >Password</label>
                             <input type="password" class="form-control" name="contrasena" placeholder="Ingrese password">
                             
                             </div>
