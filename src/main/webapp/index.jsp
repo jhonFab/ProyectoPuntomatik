@@ -105,13 +105,13 @@
             </li>
             <li><a href="">Registrar</a>
                 <ul>
-                    <li><a href="crearAgente.jsp">Agentes</a></li>
-                    <li><a href="">consulta</a>
+                    
+                    <li><a href="">Agentes</a>
                         <ul>
-                            <li><a href="consultarAgente.jsp">Agentes</a></li>
+                            <li><a href="crearAgente.jsp">Crear Agentes</a></li>
+                            <li><a href="consultarAgente.jsp">Consultar Agentes</a></li>
                             <li><a href="">Submenu2</a></li>
-                            <li><a href="">Submenu3</a></li>
-                            <li><a href="">Submenu4</a></li>
+                            
                         </ul>
                     </li> 
 
