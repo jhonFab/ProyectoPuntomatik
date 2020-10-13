@@ -52,7 +52,11 @@
                 response.sendRedirect("index.jsp");
         }
         else{
-                out.print("usario o contraseña invalido");
+        %>
+        <div class="alert alert-danger" role="alert" style="color: red;text-align: center;font-size: 28px; border-color: aqua;"><%
+                out.print("Usario o contraseña invalido");
+                %></div> <%
+                
                 
         }
         }
