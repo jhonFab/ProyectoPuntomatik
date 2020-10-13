@@ -45,6 +45,20 @@
                 width:500px;
                 font-family:Arial, Helvetica, sans-serif;
             }
+            
+            #video, #texto{
+                float: left;
+                width: 50%;
+            }
+            #video iframe{
+                text-align: left;
+            }
+            #texto {
+                border: 0;
+                height: 480px;
+                width: 50%;
+                font-family:Arial, Helvetica, sans-serif;
+            }
 
             ul, ol {
                 list-style:none;
@@ -59,6 +73,7 @@
                 color:#fff;
                 text-decoration:none;
                 padding:10px 12px;
+                transition: all 1s;
                 display:block;
             }
 
@@ -83,6 +98,10 @@
             .nav li ul li ul {
                 right:-140px;
                 top:0px;
+            }
+            
+            footer{
+                font-family:Arial, Helvetica, sans-serif;
             }
 
         </style>
@@ -133,10 +152,25 @@
             </li>
         </ul>
     </div>
-    <div style="color: white;text-align: left;font-size: 56px" class="mt-5 p-3 p-6";>
+    <div id="video" style="color: white;text-align: left;font-size: 56px" class="mt-5 p-3 p-6";>
       
      <iframe class="text-center" width="400" height="300" src="https://www.youtube.com/embed/uosPs8z-alI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
+    
+    <div id="texto" style="color: white;text-align: left;font-size: 18px" class="mt-5 p-3 p-6">
+        <h4>PuntoMatik</h4><br>
+        <p>Plataforma central de PuntoMatik. Consultas, registros, actualizaciones de informacion
+            todo un servicio a tu alcanze, para lo conductores y para los agentes de transito.
+            Comprometidos a tu servicio.</p><br>
+        <p>"Si uno avanza confiadamente en la dirección de sus sueños y deseos, se encontrará con el éxito". 
+            Henry David</p>
+    </div>
+
+
+
+<footer style="color: white;text-align: center;font-size: 17px">
+        <p>Copyright &copy; 2020  PuntoMatik  -  Todos los derechos reservados</p>
+    </footer>
 </body>
 
 </body>
