@@ -19,7 +19,7 @@
         <% java.text.DateFormat fecha = new SimpleDateFormat("EEE, d MMM yyyy ");%>
  
         <h2 style="color: white;text-align: left;font-size: 25px"; >Fecha : <%= fecha.format(new java.util.Date())%></h2>
-        <!--<iframe class="text-center" width="200" height="120" src="https://www.youtube.com/embed/uosPs8z-alI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>-->
+       
 
         <%
             HttpSession sesion = request.getSession();
@@ -133,7 +133,10 @@
             </li>
         </ul>
     </div>
-
+    <div style="color: white;text-align: left;font-size: 56px" class="mt-5 p-3 p-6";>
+      
+     <iframe class="text-center" width="400" height="300" src="https://www.youtube.com/embed/uosPs8z-alI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
 </body>
 
 </body>
