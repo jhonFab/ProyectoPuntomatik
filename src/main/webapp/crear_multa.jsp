@@ -33,7 +33,7 @@
                             <label for="id_agente">Codigo agente</label>
                             <!--<input type="number" class="form-control" id="id_agente" name="id_agente" placeholder="Cedula" required="required">-->
                             <select id="seleccion"  onchange="obtenerDato();">
-                                    <option>Seleecione su codigo</option>
+                                    <option>Seleccione su codigo</option>
                                     <%                                try {
 
                                             String url = "jdbc:mysql://localhost:3306/software?useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC";
@@ -80,8 +80,8 @@
                                     <option>Seleecione el conductor</option>
                                     <%     
                            Connection con1= null;
-            Statement st1 = null;
-            ResultSet rs1 = null;
+                           Statement st1 = null;
+                           ResultSet rs1 = null;
                            try {
 
                                             String url1 = "jdbc:mysql://localhost:3306/software?useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC";
