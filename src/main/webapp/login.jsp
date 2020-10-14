@@ -12,6 +12,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+         <link rel="stylesheet" href="estilos.css">
         <title>Login</title>
     </head>
     
@@ -24,7 +25,7 @@
         <div class="container mt-5 ">
             <div class="row">
                 <div class="col-sm">
-                    <form>
+                    <form action="" class="formulario">
                         <div class="form-group">
                             <label style="color: white" >Usuario</label>
                             <input type="text" class="form-control" name="usuario"placeholder="Ingrese usuario">
@@ -51,7 +52,7 @@
             if(usuario.equals("1234")&&contrasena.equals("1234")){
                 sesion.setAttribute("logueo", "1");
                 sesion.setAttribute("usuario", usuario);
-                response.sendRedirect("index.jsp");
+                response.sendRedirect("crear_multa.jsp");
         }
         else{
         %>

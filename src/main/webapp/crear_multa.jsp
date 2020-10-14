@@ -15,6 +15,13 @@
         <title>Crear agente</title>
     </head>
     <body>
+        <%
+            HttpSession sesion = request.getSession();
+            if (sesion.getAttribute("logueo") == null || sesion.getAttribute("logueo").equals("0")) {
+                response.sendRedirect("login.jsp");
+            }
+        %>
+        
              <%
             Connection con = null;
             Statement st = null;
@@ -214,7 +221,7 @@
                                     
                         <div class="form-group">
                             <label for="fecha">fecha</label>
-                            <input type="datetime" class="form-control" id="fecha" name="fecha" placeholder="fecha" required="required">
+                            <input type="datetime-local" class="form-control" id="fecha" name="fecha" placeholder="fecha" required="required">
                         </div>
                         <div class="form-group">
                             <label for="lugar">lugar</label>

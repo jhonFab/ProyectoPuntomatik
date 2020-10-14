@@ -21,12 +21,7 @@
         <h2 style="color: white;text-align: left;font-size: 25px"; >Fecha : <%= fecha.format(new java.util.Date())%></h2>
        
 
-        <%
-            HttpSession sesion = request.getSession();
-            if (sesion.getAttribute("logueo") == null || sesion.getAttribute("logueo").equals("0")) {
-                response.sendRedirect("login.jsp");
-            }
-        %>
+     
         <h1 style="color: white;text-align: center;font-size: 56px"; >Bienvenidos</h1>
         <h1 style="color: white;text-align: center;font-size: 48px" class="mt-5"> PuntoMatik </h1>
         <h1 style="color: white;text-align: center;font-size: 48px"> Sistema unificado para las infracciones de conductores</h1>
@@ -135,8 +130,8 @@
                     </li> 
 
 
-                    <li><a href="">Conductores</a></li>
-                    <li><a href="">Vehiculos</a></li>
+                    <li><a href="crearConductor.jsp">Conductores</a></li>
+                    <li><a href="crearVehiculo.jsp">Vehiculos</a></li>
                     <li><a href="crear_multa.jsp">multas</a></li>
                 </ul>
             </li>
