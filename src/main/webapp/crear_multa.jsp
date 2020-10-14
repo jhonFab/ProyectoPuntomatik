@@ -55,8 +55,8 @@
 
 
                                     <option ><%= rs.getInt(1)%></option>
-
-
+                                    <option  class="form-control" disabled=" "><%= rs.getString(2)%></option>
+                                     
                                     <%
                                        
                                         }
@@ -66,14 +66,15 @@
                                     %>
 
                                 </select>
+                                   
                                  <input type="text" class="form-control" id="id_agente" name="id_agente" placeholder="" required="required" readonly="readonly">
 
                                 <script>
                                     function obtenerDato() {
 
                                         var d = document.getElementById("seleccion").value;
-
-                                        document.getElementById("id_agente" ).value = d;
+                                                
+                                        document.getElementById("id_agente").value = d;
                                     }
                                     
                              
@@ -103,6 +104,7 @@
 
 
                                     <option ><%= rs1.getInt(1)%></option>
+                                    <option  class="form-control" disabled=" "><%= rs1.getString(2)%></option>
 
 
                                     <%
@@ -141,13 +143,14 @@
                                             Class.forName("com.mysql.jdbc.Driver");
                                             con1= DriverManager.getConnection(url1, username1, password1);
                                             st1 = con.createStatement();
-                                            rs1 = st1.executeQuery("SELECT id_vehiculo FROM `vehiculo`");
+                                            rs1 = st1.executeQuery("SELECT id_vehiculo, placa FROM `vehiculo`");
                                             while (rs1.next()) {
                                     %>
 
 
                                     <option ><%= rs1.getInt(1)%></option>
-
+                                     <option  class="form-control" disabled=" "><%= rs1.getString(2)%></option>
+                                     
 
                                     <%
                                             }
@@ -194,6 +197,8 @@
 
 
                                     <option ><%= rs1.getInt(1)%></option>
+                                    <option  class="form-control" disabled=" " ><%= rs1.getString(3)%></option>
+                                    
 
 
                                     <%
