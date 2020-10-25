@@ -14,6 +14,44 @@
         <title>Principal</title>
         
     </head>
+    <style>
+        body{
+            
+            background: aqua;
+        }
+        .formulario_ir{
+            width: 400px;
+            height: 400px;
+            text-align: center;
+            border: 1px solid grey;
+            margin: auto;
+            border-radius: 5px;
+            background: white;
+        }
+        form{
+            width: 200px;
+            height: 200px;
+            text-align: right;
+            border: 5px solid grey;
+            margin: auto;
+            border-radius: 5px;
+            background: #90;
+            
+        }
+        input{
+            height: 30px;
+            width: 90px;
+            text-align: center;
+            border-bottom-color: yellow;
+            background-color: #90;
+            position: 200px 300px;
+            
+           
+            
+            
+        }
+        
+    </style>
   
     
     <body   >
@@ -118,16 +156,18 @@
         
        
 
-        <form action="index.jsp" method="post">
+        <form  class="formulario_ir" action="index.jsp" method="post">
             
             
             <input type="submit" value="ir" style="animation: linear">
+            <input type="button">
         </form>
         
         <h1 style="text-decoration: blue; text-align: center">Bienvenidos a Puntomatik</h1>
         
          <form action="index.jsp" method="post">
                 <input type="submit" value="Consultar">
+                <input type="submit" value="aprender">
                 
             </form>
         
