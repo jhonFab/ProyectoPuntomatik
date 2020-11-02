@@ -142,7 +142,7 @@
             <li><a href="">Otros</a>
                 <ul>
                     <li><a href=".jsp">Eliminar</a></li>
-                    <li><a href="">pendiente</a></li>
+                    <li><a href="crearGravedad.jsp">Registar Grvedad</a></li>
                     <li><a href="">pendiente</a></li>
                     <li><a href="">pendeinte</a></li>
                 </ul>
