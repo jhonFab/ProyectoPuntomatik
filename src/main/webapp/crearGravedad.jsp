@@ -4,6 +4,7 @@
     Author     : jflin
 --%>
 
+<%@page import="javax.swing.JOptionPane"%>
 <%@page import="java.sql.*"%>
 <%@page import="com.mysql.jdbc.Driver"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -35,9 +36,9 @@
                             <input type="text" class="form-control" id="tipo_gravedad" name="tipo_gravedad" placeholder="tipo de garvedad" required="required">
                         </div>
                         <div class="form-group">
-                            <label for="id_gravead">id gravedad</label>
-                            <input type="number" class="form-control" id="id_gravedad" name="id_gravedad" placeholder="" required="required">
-
+                            <label for="id_gravedad ">id gravedad</label>
+                            <input type="number" class="form-control" id="id_gravedad " name="id_gravedad " placeholder="Id gravedad" required="required">
+                                                                                                        
                              <button type="submit" name="enviar" class="btn btn-primary">Guardar <i class="fa fa-floppy-o" aria-hidden="true"></i></button>
                                          <a href="index.jsp">Cancelar  <i class="fa fa-times" aria-hidden="true"></i></a>            
 
@@ -51,6 +52,7 @@
             if (request.getParameter("enviar") != null) {
                 String tipoGravedad= request.getParameter("tipo_gravedad");
                 String idGravedad= request.getParameter("id_gravedad ");
+            
                 
                 
                 try {
