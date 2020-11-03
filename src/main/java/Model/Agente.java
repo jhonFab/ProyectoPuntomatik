@@ -14,17 +14,17 @@ public class Agente implements Serializable{
     private int id_agente; 
     private String nombre;
     private  String telefono;
-    private int usuario;
-    private int contrasena;
-    private String seccional;
+    private String usuario;
+    private String contrasena;
+    private int id_seccional;
     
-    public Agente(int cedula, String nom, String telefono, int usua, int contra, String seccio){
+    public Agente(int cedula, String nombre, String telefono, String usua, String contra, int seccional){
             this.id_agente = cedula;
-            this.nombre= nom; 
+            this.nombre= nombre; 
             this.telefono= telefono;
-            this.usuario=usua;
-            this.contrasena=contra;
-            this.seccional=seccio;
+            this.usuario= usua;
+            this.contrasena= contra;
+            this.id_seccional= seccional;
     
     }
 
@@ -32,7 +32,7 @@ public class Agente implements Serializable{
         return id_agente;
     }
 
-    public void setAgente(int id_agente ) {
+    public void setId_agente(int id_agente) {
         this.id_agente = id_agente;
     }
 
@@ -52,27 +52,29 @@ public class Agente implements Serializable{
         this.telefono = telefono;
     }
 
-    public int getUsuario() {
+    public String getUsuario() {
         return usuario;
     }
 
-    public void setUsuario(int usuario) {
+    public void setUsuario(String usuario) {
         this.usuario = usuario;
     }
-    
-    public int getContrasena() {
+
+    public String getContrasena() {
         return contrasena;
     }
 
-    public void setContrasena(int contrasena) {
+    public void setContrasena(String contrasena) {
         this.contrasena = contrasena;
     }
-    
-    public void setSeccional(String seccional) {
-        this.seccional = seccional;
+
+    public int getId_seccional() {
+        return id_seccional;
     }
 
-    public String getSeccional() {
-        return seccional;
+    public void setId_seccional(int id_seccional) {
+        this.id_seccional = id_seccional;
     }
+
+   
 }

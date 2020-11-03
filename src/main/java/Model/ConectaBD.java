@@ -9,6 +9,8 @@ import java.sql.DriverManager;
 import java.sql.SQLDataException;
 import java.sql.SQLException;
 import static java.time.Clock.system;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -17,35 +19,36 @@ import static java.time.Clock.system;
  */
 public class ConectaBD {
     public static Connection con;
+    public static String driver = "com.mysql.jdbc.Driver";
     public static String usuario = "root";
-    public static String passw = "12345";
-    public static String url = "jdbc:mysql://localhost:3307/software?zeroDateTimeBehavior=CONVERT_TO_NULL";
+    public static String passw = "";
+    public static String url = "jdbc:mysql://localhost:3306/software?useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC";
     
     
-    public static Connection abrir(){
+    public ConectaBD(){
         try {
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName(driver);
             con = DriverManager.getConnection(url,usuario,passw);
+            
+            if(con != null){
+                System.out.println("Conexion OK "+con);
+            }
             
             
         }catch(ClassNotFoundException | SQLException e){
-            System.out.println("Error en la conexion...");
+            System.out.println("Error en la conexion..."+e.getMessage());
         }
+    }
+    
+    public Connection conectar(){
         return con;
     }
-    
-    public static void cerrar(){
-        
+    public void desconectar(){
+        System.out.println("Cerrando la BD "+con);
         try {
-            if (con != null) {
-                con.close();
-                                
-            }
-        } catch (SQLException e) {
-            System.out.println("Error : no se logro cerra la conexion: \n"+e);
-            
+            con.close();
+        } catch (SQLException ex) {
+            System.out.println("Error de SQL "+ex.getMessage());
         }
-    
     }
-    
 }

@@ -3,12 +3,16 @@
     Created on : 6 oct. 2020, 23:18:09
     Author     : JUAN MORENO
 --%>
+<%@page import="java.util.List"%>
 <%@page import="com.mysql.cj.protocol.Resultset"%>
 <%@page import="com.mysql.jdbc.Driver"%>
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.*"%>
 <%@page import="java.sql.Connection"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%
+    List lista = (List) request.getAttribute("lista");
+%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -24,19 +28,9 @@
             Statement st = null;
             ResultSet rs = null;
 
-            String nombre = null;
-            String cedula = null;
-            String fecha = null;
-            String lugar = null;
-            String idvehiculo = null;
-            String tipovehiculo = null;
-            String placa = null;
-            String idinfraccion = null;
-            String gravedad = null;
-            String detalle = null;
-
-            String verificar = null;
+           
         %>
+
 
         <h1>Historial Conductores</h1>
 
@@ -44,7 +38,7 @@
             <form class="form-group">
                 <div class="form-group">
                     <label for="cedula">Buscar por Cedula</label>
-                    <input type="text" name="cedulaBuscar" class="form-control mr-sm-2"  aria-describedby="emailHelp" >
+                    <input type="text" name="cedulaBuscar" class="form-control mr-sm-2"  id="cedulaBuscar" placeholder="cedulaBuscar" >
                 </div>
 
                 <button type="submit" name="buscar" class="btn btn-primary">Buscar</button>
@@ -71,8 +65,9 @@
                 </tr>
             </thead>
             <tbody>
-                <%            String cedulaBuscar = request.getParameter("cedulaBuscar");
+                <%            
                     if (request.getParameter("buscar") != null) {
+                    String cedulaBuscar = request.getParameter("cedulaBuscar");
                         try {
 
                             String url = "jdbc:mysql://localhost:3306/software?useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC";
@@ -80,15 +75,14 @@
                             String password = "";
                             Class.forName("com.mysql.jdbc.Driver");
                             con = DriverManager.getConnection(url, username, password);
-
                             st = con.createStatement();
-                            rs = st.executeQuery("SELECT c.id_conductor, c.nombre, m.fecha, m.lugar, v.id_vehiculo, v.placa, v.tipo_vehiculo, i.id_infraccion, i.gravedad, i.detalle FROM conductor c,multa m, infraccion i, vehiculo v WHERE c.id_conductor=" + cedulaBuscar + " AND m.id_conductor=" + cedulaBuscar + " AND m.id_infraccion=i.id_infraccion AND c.id_vehiculo=v.id_vehiculo");
-                            
+                            rs = st.executeQuery("SELECT c.id_conductor, c.nombre, m.fecha, m.lugar, v.id_vehiculo, v.placa, v.tipo_vehiculo, i.id_infraccion, g.tipo_gravedad, i.detalle FROM `conductor` c,`multa` m, `infraccion` i, `vehiculo` v, `gravedad` g WHERE c.id_conductor="+cedulaBuscar +" AND m.id_conductor="+cedulaBuscar +" AND m.id_infraccion=i.id_infraccion AND c.id_vehiculo=v.id_vehiculo AND i.id_gravedad=g.id_gravedad");
+
                             while (rs.next()) {
 
-                                
 
                 %>
+
                 <tr>
                     <th scope="row"> <%= rs.getString(1)%> </th>
                     <td><%= rs.getString(2)%></td>
@@ -100,6 +94,7 @@
                     <td><%= rs.getString(8)%></td>
                     <td><%= rs.getString(9)%></td>
                     <td><%= rs.getString(10)%></td>
+
                 </tr>
                 <%
                     }
@@ -110,7 +105,6 @@
                     }
                 }
                 %></div>
-
         </tbody>
     </table>
 
