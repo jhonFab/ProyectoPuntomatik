@@ -111,7 +111,7 @@
                     <li><a href="">Conductor</a>
                         <ul>
                             <li><a href="historialConductor.jsp">Historial</a></li>
-                            <li><a href="">consultas puntos</a></li>
+                            <li><a href="consultarPuntos.jsp">consultas puntos</a></li>
                         </ul>
                     </li>
                     <li><a href="">Agente</a>
