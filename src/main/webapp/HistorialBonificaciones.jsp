@@ -30,13 +30,12 @@
             
         %>
 
-        <h1 style="text-align: center;" class="container mt-5 ">Consulta los puntos del conductor</h1>
+        <h1 style="text-align: center;" class="container mt-5 ">Historial de bonificaciones</h1>
         
          <div class="container mt-5 ">
             <form class="form-group">
                 <div class="form-group">
-                    <label for="cedula">Buscar por Cedula</label>
-                    <input type="text" name="cedulaBuscarPunto" class="form-control mr-sm-2"  id="cedulaBuscarPunto">
+                    <input type="text" name="cedulaBuscarPunto" class="form-control mr-sm-2" placeholder="Introduzca su cedula"  id="cedulaBuscarPunto">
                 </div>
 
                 <button type="submit" name="buscarPuntos" class="btn btn-primary">Buscar</button>

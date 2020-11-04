@@ -37,14 +37,12 @@
 
         %>
 
-        <h1>Asignar bonificaciones</h1>     
+        <h1 style="text-align: center;" class="container mt-5 ">Asignar bonificaciones</h1>     
            <div class="container mt-5 ">
             <form class="form-group">
                 <div class="form-group">
-                    <label for="cedula">Buscar Conductor</label>
-                    <input type="search" name="cedulaBuscar" class="form-control mr-sm-2" >
-                    <label for="Puntos">Asignar puntos</label>
-                    <input type="text" name="asignarPuntos" class="form-control mr-sm-2"  aria-describedby="emailHelp">
+                    <input type="search" name="cedulaBuscar" placeholder="Introduzca la cedula del conductor" class="form-control mr-sm-2" >
+                    <input type="text" name="asignarPuntos" class="form-control mr-sm-2" placeholder="Introduzca los puntos a bonificar"  aria-describedby="emailHelp">
                 </div>
 
                 <button type="submit" name="buscar" class="btn btn-primary">Buscar</button>
