@@ -148,9 +148,8 @@
                     
                     <li><a href="">Administrador</a>
                            <ul
-                           <li><a href="historialConductor.jsp">Consulta de Infracciones de Agentes</a></li>
-                            <li><a href="consultarPuntos.jsp">Puntos Retirados</a></li>
-                             <li><a href="consultarPuntos.jsp">Importe Total de Multas</a></li>
+                           <li><a href="consultarInfraccionesAgente.jsp">Consulta de Infracciones de Agentes</a></li>
+                           
                            </ul>  
                              </li>
                              
