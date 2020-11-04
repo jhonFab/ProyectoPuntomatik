@@ -1,8 +1,4 @@
-<%-- 
-    Document   : crearGravedad
-    Created on : 23 oct. 2020, 23:45:22
-    Author     : jflin
---%>
+
 
 <%@page import="javax.swing.JOptionPane"%>
 <%@page import="java.sql.*"%>

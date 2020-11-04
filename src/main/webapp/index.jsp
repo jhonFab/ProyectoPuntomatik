@@ -142,13 +142,23 @@
             <li><a href="">Otros</a>
                 <ul>
                     <li><a href=".jsp">Eliminar</a></li>
-                    <li><a href="crearGravedad.jsp">Registar Grvedad</a></li>
-                    <li><a href="">pendiente</a></li>
-                    <li><a href="">pendeinte</a></li>
-                </ul>
+                    <li><a href="crearGravedad.jsp">Registar Gravedad</a></li>
+                    
+                    
+                    
+                    <li><a href="">Administrador</a>
+                           <ul
+                           <li><a href="historialConductor.jsp">Consulta de Infracciones de Agentes</a></li>
+                            <li><a href="consultarPuntos.jsp">Puntos Retirados</a></li>
+                             <li><a href="consultarPuntos.jsp">Importe Total de Multas</a></li>
+                           </ul>  
+                             </li>
+                             
+                    
+                
 
-
-            </li>
+                          
+            
         </ul>
     </div>
     <div id="video" style="color: white;text-align: left;font-size: 56px" class="mt-5 p-3 p-6";>
@@ -157,12 +167,13 @@
     </div>
     
     <div id="texto" style="color: white;text-align: left;font-size: 18px" class="mt-5 p-3 p-6">
-        <h4>PuntoMatik</h4><br>
+     <!--   <h4>PuntoMatik</h4><br>
         <p>Plataforma central de PuntoMatik. Consultas, registros, actualizaciones de informacion
             todo un servicio a tu alcanze, para lo conductores y para los agentes de transito.
             Comprometidos a tu servicio.</p><br>
         <p>"Si uno avanza confiadamente en la dirección de sus sueños y deseos, se encontrará con el éxito". 
             Henry David</p>
+     -->
     </div>
 
 

@@ -1,8 +1,4 @@
-<%-- 
-    Document   : mostrarAgente
-    Created on : 11/10/2020, 12:32:02 a. m.
-    Author     : Jhon Alexander
---%>
+
 
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="com.mysql.cj.protocol.Resultset"%>
