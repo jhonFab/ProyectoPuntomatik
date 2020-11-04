@@ -1,8 +1,9 @@
 <%-- 
-    Document   : consultarPuntos
-    Created on : 02-nov-2020, 21:36:04
-    Author     : leonardo
+    Document   : HistorialBonificaciones
+    Created on : 3/11/2020, 9:44:36 p. m.
+    Author     : David
 --%>
+
 <%@page import="com.mysql.cj.protocol.Resultset"%>
 <%@page import="com.mysql.jdbc.Driver"%>
 <%@page import="java.sql.Statement"%>
@@ -35,7 +36,7 @@
             <form class="form-group">
                 <div class="form-group">
                     <label for="cedula">Buscar por Cedula</label>
-                    <input type="text" name="cedulaBuscarPunto" class="form-control mr-sm-2"  id="cedulaBuscarPunto" placeholder="numero de cedula del ciudadano del que se desea ver los puntos." >
+                    <input type="text" name="cedulaBuscarPunto" class="form-control mr-sm-2"  id="cedulaBuscarPunto">
                 </div>
 
                 <button type="submit" name="buscarPuntos" class="btn btn-primary">Buscar</button>
@@ -47,8 +48,8 @@
             <thead class="thead-dark">
                 <tr>
                     <th scope="col">cedula conductor</th>
-                    <th scope="col">Nombre</th>
-                    <th scope="col">puntos</th>
+                    <th scope="col">Puntos</th>
+                    <th scope="col">Fecha</th>
                     
                 </tr>
             </thead>
@@ -65,7 +66,7 @@
 
                             con = DriverManager.getConnection(url, username, password);
                             st = con.createStatement();
-                            rs = st.executeQuery("SELECT `id_conductor`, `nombre`, `puntos` FROM `conductor` c WHERE id_conductor ="+cedulaBuscarPunto);
+                            rs = st.executeQuery("SELECT `id_conductor`, `puntos`, `fecha` FROM `bonificaciones`  WHERE id_conductor ="+cedulaBuscarPunto);
 
                             while (rs.next()) {
                             
@@ -73,7 +74,7 @@
                 %>
                 <tr>
                     <th scope="row"> <%= rs.getInt(1)%> </th>
-                    <td><%= rs.getString(2)%></td>
+                    <td><%= rs.getInt(2)%></td>
                     <td><%= rs.getString(3) %></td>
                    
                 </tr>
