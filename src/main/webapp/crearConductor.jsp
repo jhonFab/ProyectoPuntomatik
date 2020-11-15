@@ -50,9 +50,9 @@
                            
                            try {
 
-                                            String url1 = "jdbc:mysql://localhost:3306/software?useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC";
-                                            String username1 = "root";
-                                            String password1 = "";
+                                           String url1 = "jdbc:mysql://localhost:3306/software";
+                                           String username1 = "root";
+                                           String password1 = "";
                                             Class.forName("com.mysql.jdbc.Driver");
                                             con= DriverManager.getConnection(url1, username1, password1);
                                             st = con.createStatement();
@@ -112,9 +112,9 @@
 
                 try {
                    
-                    String url = "jdbc:mysql://localhost:3306/software?useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC";
-                    String username = "root";
-                    String password = "";
+                   String url = "jdbc:mysql://localhost:3306/software";
+                   String username = "root";
+                   String password = "";
                     Class.forName("com.mysql.jdbc.Driver");
                     con = DriverManager.getConnection(url, username, password);           
                    

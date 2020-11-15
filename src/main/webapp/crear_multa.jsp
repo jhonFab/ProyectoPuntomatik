@@ -3,6 +3,8 @@
     Created on : 10/10/2020, 07:06:33 p. m.
     Author     : Juan David Castaño
 --%>
+<%@page import = "Model.GravedadPDAO"%>
+<%@page import = "Model.GravedadP" %>
 <%@page import="java.sql.*"%>
 <%@page import="com.mysql.jdbc.Driver"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -25,7 +27,9 @@
              <%
             Connection con = null;
             Statement st = null;
+            Statement st3 = null;
             ResultSet rs = null;
+            ResultSet  rs2 = null;
 
         %>
         <h1 class="text-center mt-5">Registrar multa</h1>
@@ -241,17 +245,63 @@
                 </div>
             </div>
         </div>
+                                    
+        <%
+            String cedula2= request.getParameter("id_conductor");
+            String id_infraccion= request.getParameter("infraccion");
+            int puntos = 0;
+            int puntos1 = 0;
+            int gravedad = 0;
+            try {
+                   
+                    String url = "jdbc:mysql://localhost:3306/software?useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC";
+                    String username = "root";
+                    String password = "";
+                    Class.forName("com.mysql.jdbc.Driver");
+                    con = DriverManager.getConnection(url, username, password); 
+                    
+                    st = con.createStatement();
+                    st1 = con.createStatement();
+                    rs = st.executeQuery("SELECT `puntos` FROM `conductor` WHERE id_conductor="+ cedula2 + " ");
+                    rs2 = st1.executeQuery("SELECT `id_gravedad` FROM `infraccion` WHERE id_infraccion="+ id_infraccion+ " ");
+                    
+                    while (rs2.next()){
+                    
+                        gravedad=rs2.getInt(1);
+                    
+                    }
+
+                    while (rs.next()){
+
+                    puntos = rs.getInt(1);
+                    
+                    }
+                } catch (Exception e) {
+                    out.print("se encontro un error2  : "+e);
+                }
+
+                if(gravedad == 1){
+                    puntos = puntos-1;
+                    puntos1 = 1;
+                }
+                if(gravedad == 2){
+                    puntos = puntos-2;
+                    puntos1 = 2;
+                }
+                if(gravedad == 3){
+                    puntos = puntos-3;
+                    puntos1 = 3;
+                }
+        %>
+        
         <%
             if (request.getParameter("enviar") !=null) {
                 //String multa= request.getParameter("id_multa");
                 String cedula= request.getParameter("id_agente");
-                String cedula2 = request.getParameter("id_conductor");                             
-                String placaVehiculo = request.getParameter("id_vehiculo");
-                String id_infraccion= request.getParameter("infraccion");
+                //cedula2 = request.getParameter("id_conductor");                             
+                String placaVehiculo = request.getParameter("id_vehiculo");     
                 String fecha= request.getParameter("fecha");
                 String ubicacion= request.getParameter("lugar");
-      
-                
 
                 try {
                    
@@ -262,7 +312,11 @@
                     con = DriverManager.getConnection(url, username, password);           
                    
                     st=con.createStatement();
+                    st1 = con.createStatement();
+                    st3 = con.createStatement();
                     st.executeUpdate("insert into `multa` (id_agente,id_conductor,id_vehiculo,id_infraccion,fecha,lugar ) values("+cedula+","+cedula2+",'"+placaVehiculo+"',"+id_infraccion+",'"+fecha+"','"+ubicacion+"');");
+                    st1.executeUpdate("UPDATE conductor SET puntos = "+puntos+" WHERE id_conductor="+cedula2+"");
+                    st3.executeUpdate("INSERT INTO `puntos_eliminados` (`id_agente`, `puntos` , `fecha`) VALUES ("+cedula+","+puntos1+",'"+fecha+"')");
                     request.getRequestDispatcher("index.jsp").forward(request, response);
                 } catch (Exception e) {
                     out.print("se encontro un error  : "+e);

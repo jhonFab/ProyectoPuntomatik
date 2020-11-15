@@ -52,7 +52,7 @@ public class ControladorGravedad extends HttpServlet {
         } else if ("modificar".equalsIgnoreCase(accion)) {
 
             int id = Integer.parseInt(request.getParameter("id_gravedad"));
-            GravedadP g = gravedadDAO.mostarGravedad(id);
+            GravedadP g = gravedadDAO.mostrarGravedad(id);
             request.setAttribute("lista", g);
             dispacher = request.getRequestDispatcher("Productos/editarGravedad.jsp");
             //  dispacher = request.getRequestDispatcher("/index.jsp");

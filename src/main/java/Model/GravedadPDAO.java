@@ -18,7 +18,7 @@ import java.util.List;
  * @author jflin
  */
 public class GravedadPDAO {
-    Connection con=null;
+    static Connection con=null;
     
     public GravedadPDAO(){
     ConectaBD cn= new ConectaBD();
@@ -51,7 +51,7 @@ public class GravedadPDAO {
         }
     }
       
-       public GravedadP mostarGravedad(int id_gravedad) {
+       public static GravedadP mostrarGravedad(int id_gravedad) {
         //PreparableStatement ps;
         ResultSet rs;
         Statement st;
