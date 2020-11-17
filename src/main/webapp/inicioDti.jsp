@@ -91,7 +91,7 @@
             }
 
             .nav li ul li ul {
-                right:130px;
+                right:140px;
                 top:0px;
             }
 
@@ -112,6 +112,7 @@
                         <ul>
                             <li><a href="historialConductor.jsp">Historial</a></li>
                             <li><a href="consultarPuntos.jsp">consultas puntos</a></li>
+                            <li><a href="HistorialBonificaciones.jsp">consultas Bonificaciones</a></li>
                         </ul>
                     </li>
                     <li><a href="">Agente</a>
@@ -128,7 +129,7 @@
                         <ul>
                             <li><a href="crearAgente.jsp">Crear Agentes</a></li>
                             <li><a href="consultarAgente.jsp">Consultar Agentes</a></li>
-                            <li><a href="">Submenu2</a></li>
+
 
                         </ul>
                     </li> 
@@ -143,43 +144,37 @@
                 <ul>
                     <li><a href="">Administrador</a>
                         <ul>
-                            <li><a href="consultarInfraccionesAgente.jsp">Productividad agente</a></li>
+                            <li><a href="consultarInfraccionesAgente.jsp">Infracciones agente</a></li>
                             <li><a href="Bonificaciones.jsp">Asignar bonoficaciones</a></li>
-                            <li><a href="">Submenu2</a></li>
-
                         </ul>
                     </li> 
-
                     <li><a href="ListaGravedad.jsp">Gravedad Multa</a></li>
-                      
-
-                  
+                </ul>
+            </li>
+            <li><a href="index.jsp">salir</a></li>
         </ul>
-    </li>
-    <li><a href="index.jsp">salir</a></li>
-    </ul>
 
-</div>
-<div id="video" style="color: white;text-align: left;font-size: 56px" class="mt-5 p-3 p-6";>
+    </div>
+    <div id="video" style="color: white;text-align: left;font-size: 56px" class="mt-5 p-3 p-6";>
 
-    <iframe class="text-center" width="400" height="300" src="https://www.youtube.com/embed/uosPs8z-alI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</div>
+        <iframe class="text-center" width="400" height="300" src="https://www.youtube.com/embed/uosPs8z-alI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
 
-<div id="texto" style="color: white;text-align: left;font-size: 18px" class="mt-5 p-3 p-6">
-    <!--   <h4>PuntoMatik</h4><br>
-       <p>Plataforma central de PuntoMatik. Consultas, registros, actualizaciones de informacion
-           todo un servicio a tu alcanze, para lo conductores y para los agentes de transito.
-           Comprometidos a tu servicio.</p><br>
-       <p>"Si uno avanza confiadamente en la dirección de sus sueños y deseos, se encontrará con el éxito". 
-           Henry David</p>
-    -->
-</div>
+    <div id="texto" style="color: white;text-align: left;font-size: 18px" class="mt-5 p-3 p-6">
+        <!--   <h4>PuntoMatik</h4><br>
+           <p>Plataforma central de PuntoMatik. Consultas, registros, actualizaciones de informacion
+               todo un servicio a tu alcanze, para lo conductores y para los agentes de transito.
+               Comprometidos a tu servicio.</p><br>
+           <p>"Si uno avanza confiadamente en la dirección de sus sueños y deseos, se encontrará con el éxito". 
+               Henry David</p>
+        -->
+    </div>
 
 
 
-<footer style="color: white;text-align: center;font-size: 17px">
-    <p>Copyright &copy; 2020  PuntoMatik  -  Todos los derechos reservados</p>
-</footer>
+    <footer style="color: white;text-align: center;font-size: 17px">
+        <p>Copyright &copy; 2020  PuntoMatik  -  Todos los derechos reservados</p>
+    </footer>
 </body>
 
 </body>

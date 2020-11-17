@@ -16,11 +16,12 @@
         
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <link href="Productos/estilos.css" rel="stylesheet" type="text/css"/>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
         <title>Consultar Saldo de putos</title>
         
     </head>
-    <body>
+    <body  style="background-image: url('https://besthqwallpapers.com/img/original/99458/blue-creative-texture-dark-blue-abstract-background-creative-blue-backgrounds-background-with-lines-stylish-blue-texture.jpg');">
          <%
             Connection con = null;
             Statement st = null;
@@ -29,21 +30,19 @@
             
         %>
 
-        <h1 style="text-align: center;" class="container mt-5 ">Consulta los puntos del conductor</h1>
+        
         
          <div class="container mt-5 ">
-            <form class="form-group">
+            <form class="datos" class="form-group">
+                <h1 style="text-align: center;" class="container mt-5 ">Consulta los puntos del conductor</h1>
                 <div class="form-group">
                     <label for="cedula">Buscar por Cedula</label>
                     <input type="text" name="cedulaBuscarPunto" class="form-control mr-sm-2"  id="cedulaBuscarPunto" placeholder="numero de cedula del ciudadano del que se desea ver los puntos." >
                 </div>
 
                 <button type="submit" name="buscarPuntos" class="btn btn-primary">Buscar</button>
-            </form>
-
-        </div>
-        
-         <table class="table table-bordered container mt-5">
+                
+                <table class="table table-bordered container mt-5">
             <thead class="thead-dark">
                 <tr>
                     <th scope="col">cedula conductor</th>
@@ -88,9 +87,14 @@
                 %></div>
         </tbody>
     </table>
+            </form>
+
+        </div>
+        
+         
         
          <div class="container mt-5 ">
-        <button type="submit" class="btn btn-light "><a href="index.jsp"><i class="fa fa-reply" aria-hidden="true">Regresar a Pagina Principal</i></a></button>
+        <button type="submit" class="btn btn-light "><a href="inicioDti.jsp"><i class="fa fa-reply" aria-hidden="true">Regresar a Pagina Principal</i></a></button>
       
     </div>
         

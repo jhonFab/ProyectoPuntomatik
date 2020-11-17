@@ -32,7 +32,7 @@
                         </div>
                      
                          <button type="submit" name="enviar" class="btn btn-primary">Guardar <i class="fa fa-floppy-o" aria-hidden="true"></i></button>
-                                         <a href="index.jsp">Cancelar  <i class="fa fa-times" aria-hidden="true"></i></a>  
+                                         <a href="inicioDti.jsp">Cancelar  <i class="fa fa-times" aria-hidden="true"></i></a>  
                     </form>
                 </div>
             </div>
