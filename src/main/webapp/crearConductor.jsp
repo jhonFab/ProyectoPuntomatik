@@ -87,10 +87,7 @@
 
                                 </script>
                             </div>
-                            <div class="form-group">
-                                <label for="Puntos">Puntos</label>
-                                <input type="number" class="form-control" id="num_puntos" name="num_puntos" placeholder="numero de puntos">
-                            </div>
+                           
                             <button type="submit" name="enviar" class="btn btn-primary">Guardar <i class="fa fa-floppy-o" aria-hidden="true"></i></button>
                             <button  href="inicioDti.jsp" class="btn btn-primary">   <a href="inicioDti.jsp">Cancelar</a>
                               
@@ -108,7 +105,7 @@
                         String telefono = request.getParameter("telefono");
                         String licencia = request.getParameter("numLicencia");
                         String idV = request.getParameter("id_vehiculo");
-                        String numP = request.getParameter("num_puntos");
+                        int numP = 20;
 
                         try {
 
