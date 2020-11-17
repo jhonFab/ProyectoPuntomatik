@@ -111,7 +111,7 @@
 
 
                     <tbody>
-                        <%                    String asigP = request.getParameter("asignarPuntos");
+                        <% String asigP = request.getParameter("asignarPuntos");
 
                             if (request.getParameter("asignar") != null) {
 

@@ -3,6 +3,8 @@
     Created on : 10/10/2020, 07:06:33 p. m.
     Author     : Juan David Castaño
 --%>
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="java.util.Date"%>
 <%@page import = "Model.GravedadPDAO"%>
 <%@page import = "Model.GravedadP" %>
 <%@page import="java.sql.*"%>
@@ -24,12 +26,17 @@
             }
         %>
         
-             <%
+        <%
             Connection con = null;
             Statement st = null;
             Statement st3 = null;
             ResultSet rs = null;
             ResultSet  rs2 = null;
+            Date td = new Date(); 
+            String b = new String(""); 
+            SimpleDateFormat format = new SimpleDateFormat("YYYY/MM/dd"); 
+            b = format.format(td);
+            
 
         %>
         <h1 class="text-center mt-5">Registrar multa</h1>
@@ -228,10 +235,7 @@
                                                            </script>
                         </div>
                                     
-                        <div class="form-group">
-                            <label for="fecha">fecha</label>
-                            <input type="datetime-local" class="form-control" id="fecha" name="fecha" placeholder="fecha" required="required">
-                        </div>
+                       
                         <div class="form-group">
                             <label for="lugar">lugar</label>
                             <input type="text" class="form-control" id="lugar" name="lugar" placeholder="lugar">
@@ -314,9 +318,9 @@
                     st=con.createStatement();
                     st1 = con.createStatement();
                     st3 = con.createStatement();
-                    st.executeUpdate("insert into `multa` (id_agente,id_conductor,id_vehiculo,id_infraccion,fecha,lugar ) values("+cedula+","+cedula2+",'"+placaVehiculo+"',"+id_infraccion+",'"+fecha+"','"+ubicacion+"');");
+                    st.executeUpdate("insert into `multa` (id_agente,id_conductor,id_vehiculo,id_infraccion,fecha,lugar ) values("+cedula+","+cedula2+",'"+placaVehiculo+"',"+id_infraccion+",'"+b+"','"+ubicacion+"');");
                     st1.executeUpdate("UPDATE conductor SET puntos = "+puntos+" WHERE id_conductor="+cedula2+"");
-                    st3.executeUpdate("INSERT INTO `puntos_eliminados` (`id_agente`, `puntos` , `fecha`) VALUES ("+cedula+","+puntos1+",'"+fecha+"')");
+                    st3.executeUpdate("INSERT INTO `puntos_eliminados` (`id_agente`, `puntos` , `fecha`) VALUES ("+cedula+","+puntos1+",'"+b+"')");
                     request.getRequestDispatcher("index.jsp").forward(request, response);
                 } catch (Exception e) {
                     out.print("se encontro un error  : "+e);
