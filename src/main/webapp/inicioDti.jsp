@@ -64,7 +64,7 @@
             }
 
             .nav li a {
-                background-color:#90    ;
+                background-color:#90 ;
                 color:#fff;
                 text-decoration:none;
                 padding:10px 12px;
@@ -91,7 +91,7 @@
             }
 
             .nav li ul li ul {
-                right:-140px;
+                right:130px;
                 top:0px;
             }
 
@@ -107,7 +107,7 @@
             <li><a href="inicioDti.jsp">Inicio</a></li>
             <li><a href="">Consultas</a>
                 <ul>  
-                    <li><a href="consultarAgente.jsp">Consultas lista Conductores</a></li>
+                    <li><a href="">Consultas lista Conductores</a></li>
                     <li><a href="">Conductor</a>
                         <ul>
                             <li><a href="historialConductor.jsp">Historial</a></li>
@@ -139,28 +139,25 @@
                     <li><a href="crear_multa.jsp">multas</a></li>
                 </ul>
             </li>
-
-
-
-
-
             <li><a href="">Otros</a>
                 <ul>
-
-                    <li><a href="crearGravedad.jsp">Registar Gravedad</a></li>
-
                     <li><a href="">Administrador</a>
+                        <ul>
+                            <li><a href="consultarInfraccionesAgente.jsp">Productividad agente</a></li>
+                            <li><a href="Bonificaciones.jsp">Asignar bonoficaciones</a></li>
+                            <li><a href="">Submenu2</a></li>
 
-                        <ul
-                            <li><a href="consultarInfraccionesAgente.jsp">Consulta productividad agente</a></li>
+                        </ul>
+                    </li> 
 
-                </ul> 
+                    <li><a href="ListaGravedad.jsp">Gravedad Multa</a></li>
+                      
 
-            </li>
-            
+                  
         </ul>
     </li>
     <li><a href="index.jsp">salir</a></li>
+    </ul>
 
 </div>
 <div id="video" style="color: white;text-align: left;font-size: 56px" class="mt-5 p-3 p-6";>
