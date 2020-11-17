@@ -1,7 +1,7 @@
 <%-- 
     Document   : inicioDti
     Created on : 11-nov-2020, 15:22:20
-    Author     : Usuario
+    Author     : jhon
 --%>
 
 <%@page import="java.text.SimpleDateFormat"%>
