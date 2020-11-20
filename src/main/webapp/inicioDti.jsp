@@ -113,6 +113,7 @@
                             <li><a href="historialConductor.jsp">Historial</a></li>
                             <li><a href="consultarPuntos.jsp">consultas puntos</a></li>
                             <li><a href="HistorialBonificaciones.jsp">consultas Bonificaciones</a></li>
+                            <li><a href="consultaConductorSinInfraccion.jsp">Consulta Sin Infracciones</a></li>
                         </ul>
                     </li>
                     <li><a href="">Agente</a>
