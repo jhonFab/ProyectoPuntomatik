@@ -104,10 +104,10 @@
 <body>
     <div id="header">
         <ul class="nav">
-            <li><a href="inicioDti.jsp">Inicio</a></li>
+            <li><a href="inicioAgente.jsp">Inicio</a></li>
             <li><a href="">Consultas</a>
                 <ul>  
-                    <li><a href="">Consultas lista Conductores</a></li>
+               
                     <li><a href="">Conductor</a>
                         <ul>
                             <li><a href="historialConductor.jsp">Historial</a></li>
@@ -115,42 +115,15 @@
                             <li><a href="HistorialBonificaciones.jsp">consultas Bonificaciones</a></li>
                         </ul>
                     </li>
-                    <li><a href="">Agente</a>
-                        <ul>
-                            <li><a href="consultaProductividadAgente.jsp">Productividad</a></li>
-                        </ul>
-                    </li>
+                   
                 </ul>
             </li>
             <li><a href="">Registrar</a>
                 <ul>
-
-                    <li><a href="">Agentes</a>
-                        <ul>
-                            <li><a href="crearAgente.jsp">Crear Agentes</a></li>
-                            <li><a href="consultarAgente.jsp">Consultar Agentes</a></li>
-
-
-                        </ul>
-                    </li> 
-
-
-                    <li><a href="crearConductor.jsp">Conductores</a></li>
-                    <li><a href="crearVehiculo.jsp">Vehiculos</a></li>
                     <li><a href="crear_multa.jsp">multas</a></li>
                 </ul>
             </li>
-            <li><a href="">Otros</a>
-                <ul>
-                    <li><a href="">Administrador</a>
-                        <ul>
-                            <li><a href="consultarInfraccionesAgente.jsp">Infracciones agente</a></li>
-                            <li><a href="Bonificaciones.jsp">Asignar bonoficaciones</a></li>
-                        </ul>
-                    </li> 
-                    <li><a href="ListaGravedad.jsp">Gravedad Multa</a></li>
-                </ul>
-            </li>
+            
             <li><a href="index.jsp">salir</a></li>
         </ul>
 
