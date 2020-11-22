@@ -173,13 +173,14 @@ h2{
          <img src="iconos/agente.jpg" width="300" height="150">
         <h2>Agente</h2>
         <p>Portal autorizado solo para un agente de transito.</p>
-        <p><a class="btn btn-secondary" href="#" role="button">Ingresar &raquo;</a></p>
+        <p><a class="btn btn-secondary" href="loginAgente.jsp" role="button">Ingresar &raquo;</a></p>
       </div><!-- /.col-lg-4 -->
       <div class="col-lg-4">
         <img src="iconos/conductor.jpg" width="100" height="125">
           <h2>Conductor</h2>
-        <p>si es un conductor registrado, ingrese con su cedula, de lo contrario comuniquese con el DTI.</p>
-        <p><a class="btn btn-secondary" href="#" role="button">Ingresar &raquo;</a></p>
+        <p>si es un conductor registrado, ingrese con su cedula, de lo contrario comuniquese con el DIT.</p>
+        <p><a class="btn btn-secondary" href="historialConductor.jsp" role="button">ver historial &raquo;</a></p>
+        <p><a class="btn btn-secondary" href="consultarPuntos.jsp" role="button">consultar puntos &raquo;</a></p>
       </div><!-- /.col-lg-4 -->
       <div class="col-lg-4">
         <img src="iconos/DTI.jpg" width="100" height="100">

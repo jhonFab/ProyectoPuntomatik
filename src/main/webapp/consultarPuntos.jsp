@@ -94,7 +94,7 @@
          
         
          <div class="container mt-5 ">
-        <button type="submit" class="btn btn-light "><a href="inicioDti.jsp"><i class="fa fa-reply" aria-hidden="true">Regresar a Pagina Principal</i></a></button>
+        <button type="submit" class="btn btn-light "><a href="index.jsp"><i class="fa fa-reply" aria-hidden="true">Regresar a Pagina Principal</i></a></button>
       
     </div>
         

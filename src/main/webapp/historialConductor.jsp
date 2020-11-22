@@ -29,11 +29,11 @@
             Statement st = null;
             ResultSet rs = null;
 
-           
+
         %>
 
 
-        
+
 
         <div class="container mt-5 ">
             <form  class="datosHisConductores" >
@@ -44,65 +44,64 @@
                 </div>
 
                 <button type="submit" name="buscar" class="btn btn-primary">Buscar</button>
-                
+
                 <table class="table table-bordered container mt-5">
-            <thead class="thead-dark">
-                <tr>
-                    <th scope="col">Cedula</th>
-                    <th scope="col">Nombre</th>
-                    <th scope="col">Fecha</th>
-                    <th scope="col">Lugar</th>
-                    <th scope="col">ID Vehiculo</th>
-                    <th scope="col">Placa Vehiculo</th>
-                    <th scope="col">Tipo Vehiculo</th>
-                    <th scope="col">ID Infraccion</th>
-                    <th scope="col">Gravedad</th>
-                    <th scope="col">Detalle</th>
-                </tr>
-            </thead>
-            <tbody>
-                <%            
-                    if (request.getParameter("buscar") != null) {
-                    String cedulaBuscar = request.getParameter("cedulaBuscar");
-                        try {
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">Cedula</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Fecha</th>
+                            <th scope="col">Lugar</th>
+                            <th scope="col">ID Vehiculo</th>
+                            <th scope="col">Placa Vehiculo</th>
+                            <th scope="col">Tipo Vehiculo</th>
+                            <th scope="col">ID Infraccion</th>
+                            <th scope="col">Gravedad</th>
+                            <th scope="col">Detalle</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <%                    if (request.getParameter("buscar") != null) {
+                                String cedulaBuscar = request.getParameter("cedulaBuscar");
+                                try {
 
-                            String url = "jdbc:mysql://localhost:3306/software?useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC";
-                            String username = "root";
-                            String password = "";
-                            Class.forName("com.mysql.jdbc.Driver");
-                            con = DriverManager.getConnection(url, username, password);
-                            st = con.createStatement();
-                            rs = st.executeQuery("SELECT c.id_conductor, c.nombre, m.fecha, m.lugar, v.id_vehiculo, v.placa, v.tipo_vehiculo, i.id_infraccion, g.tipo_gravedad, i.detalle FROM `conductor` c,`multa` m, `infraccion` i, `vehiculo` v, `gravedad` g WHERE c.id_conductor="+cedulaBuscar +" AND m.id_conductor="+cedulaBuscar +" AND m.id_infraccion=i.id_infraccion AND c.id_vehiculo=v.id_vehiculo AND i.id_gravedad=g.id_gravedad");
+                                    String url = "jdbc:mysql://localhost:3306/software?useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC";
+                                    String username = "root";
+                                    String password = "";
+                                    Class.forName("com.mysql.jdbc.Driver");
+                                    con = DriverManager.getConnection(url, username, password);
+                                    st = con.createStatement();
+                                    rs = st.executeQuery("SELECT c.id_conductor, c.nombre, m.fecha, m.lugar, v.id_vehiculo, v.placa, v.tipo_vehiculo, i.id_infraccion, g.tipo_gravedad, i.detalle FROM `conductor` c,`multa` m, `infraccion` i, `vehiculo` v, `gravedad` g WHERE c.id_conductor=" + cedulaBuscar + " AND m.id_conductor=" + cedulaBuscar + " AND m.id_infraccion=i.id_infraccion AND c.id_vehiculo=v.id_vehiculo AND i.id_gravedad=g.id_gravedad");
 
-                            while (rs.next()) {
+                                    while (rs.next()) {
 
 
-                %>
+                        %>
 
-                <tr>
-                    <th scope="row"> <%= rs.getString(1)%> </th>
-                    <td><%= rs.getString(2)%></td>
-                    <td><%= rs.getString(3)%></td>
-                    <td><%= rs.getString(4)%></td>
-                    <td><%= rs.getString(5)%></td>
-                    <td><%= rs.getString(6)%></td>
-                    <td><%= rs.getString(7)%></td>
-                    <td><%= rs.getString(8)%></td>
-                    <td><%= rs.getString(9)%></td>
-                    <td><%= rs.getString(10)%></td>
+                        <tr>
+                            <th scope="row"> <%= rs.getString(1)%> </th>
+                            <td><%= rs.getString(2)%></td>
+                            <td><%= rs.getString(3)%></td>
+                            <td><%= rs.getString(4)%></td>
+                            <td><%= rs.getString(5)%></td>
+                            <td><%= rs.getString(6)%></td>
+                            <td><%= rs.getString(7)%></td>
+                            <td><%= rs.getString(8)%></td>
+                            <td><%= rs.getString(9)%></td>
+                            <td><%= rs.getString(10)%></td>
 
-                </tr>
-                <%
-                    }
+                        </tr>
+                        <%
+                            }
 
-                } catch (Exception e) {%>
-            <div class="alert alert-danger" role="alert"><%
-                        out.print("Alerta: Campos vacios");
-                    }
-                }
-                %></div>
-        </tbody>
-    </table>
+                        } catch (Exception e) {%>
+                    <div class="alert alert-danger" role="alert"><%
+                                out.print("Alerta: Campos vacios");
+                            }
+                        }
+                        %></div>
+                    </tbody>
+                </table>
 
             </form>
 
@@ -111,11 +110,13 @@
 
 
 
+
+        <div class="container mt-5 ">
+            <button type="submit"  class="btn btn-light "><a href="index.jsp"><i class="fa fa-reply" aria-hidden="true">Regresar Pagina Principal</i></a></button>
+        </div>
+
         
-    <div class="container mt-5 ">
-        <button type="submit" class="btn btn-light "><a href="inicioDti.jsp"><i class="fa fa-reply" aria-hidden="true">Regresar Pagina Principal</i></a></button>
-    </div>
 
 
-</body>
+    </body>
 </html>
